@@ -12,31 +12,99 @@ and open the template in the editor.
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        
+        <link rel="stylesheet" type="text/css" href="templates/estilosIndex.css" />
     </head>
     <body>
-        <ul class="nav nav-pills nav-justified">
-            <li class="active"><a href="#">Inicio</a></li>
-            <li><a href="#">Acerca de</a></li>
-            <li><a href="#">Contacto</a></li>
-        </ul>
-        <div class="page-header" align="center">
-            <h1>Park-Eat</h1>
+        <nav class="navbar navbar-default margenCabecera" role="navigation">
+        <!-- El logotipo y el icono que despliega el menú se agrupan
+             para mostrarlos mejor en los dispositivos móviles -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse"
+                  data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Desplegar navegación</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.php">Park-Eat</a>
         </div>
-        <div class="container">
-	  <p class="lead" align="center">Encuentra donde aparcar cuando vayas a comer.</p>
-    	  <div class="col-lg-12">
-		<p align="center">Cum sociis natoque penatibus et magnis dis parturient montes,nascetur ridiculus mus. Donec llamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
-	  </div>
-          <div align="center">
-		<img src="imagenes/Map-Logo.png" WIDTH="870" HEIGHT="480" alt="foto pagina inicio">
-	  </div>
-		<p align="center">Comenzar a buscar <button type="button" class="btn btn-info">Buscar </button></p>
-		<p align="center">Ya estas registrado <button type="button" class="btn btn-info">Login</button></p>
-		<p align="center">Aun no estas registrado? <button type="button" class="btn btn-info">Registrarse</button></p>
-	</div>
-	<div id="footer">
-            <p class="text-muted credit">Pagina de <a target="blank" href="#">Park-Eat</a> and <a target="blank" href="#">ARO</a>.</p>
-	</div>
+
+        <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+             otro elemento que se pueda ocultar al minimizar la barra -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Inicio</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">¿Quienes somos?</a></li>
+          </ul>
+            
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Log In</a></li>
+            <li><a href="#">Regístrate</a></li>
+          </ul>
+        </div>
+      </nav>
+        <div class="page-header text-center cabecera margenCabecera">
+            <!-- <img src="imagenes/LogotipoSinTitulo.png" class="img-responsive img-rounded" alt="Logo Park-Eat"> -->
+            Park-Eat
+        </div>
+        <div  class="cuerpo">
+            <div class="container">
+                <p class="lead text-center margen">Encuentra donde aparcar cuando vayas a comer.</p>
+                <div class="col-lg-12 imagen">
+                      <p class="center-block">Cum sociis natoque penatibus et magnis dis parturient montes,nascetur ridiculus mus. Donec llamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                </div>
+                <div class="imagen">
+                      <img src="imagenes/Map-Logo.png" class="center-block img-responsive img-rounded" alt="foto pagina inicio">
+                </div>
+                <div class="row">
+                    <div>
+                        <div class="col-lg-4">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                  <h3 class="panel-title text-center">Comienza a buscar</h3>
+                                </div>
+                                <div class="panel-body text-justify alturaPanel">
+                                    Si lo deseas puedes comenzar a buscar en nuestra web pulsando el siguiente botón. Recuerda que ara obtener las valoraciones debes registrarte.
+                                    <br><br>
+                                    <button type="button" class="btn btn-info center-block">Buscar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                  <h3 class="panel-title text-center">Inicia Sesión</h3>
+                                </div>
+                                <div class="panel-body text-justify alturaPanel">
+                                    Si ya estas registrado inicia sesión para poder evaluar los restaurantes y bares a los que has tenido la oportunidad de visitar.
+                                    <br><br>
+                                    <button type="button" class="btn btn-info center-block">Log In</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                  <h3 class="panel-title text-center">Aun no estas registrado?</h3>
+                                </div>
+                                <div class="panel-body text-justify alturaPanel">
+                                    Si todavía no dispones de una cuenta regístrate y disfruta de las ventajas que te ofrece Park-Eat a la hora de buscar tu restaurante.
+                                    <br><br>
+                                    <button type="button" class="btn btn-info center-block">Regístrate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer navbar-bottom" >
+                <div class="container">
+                    <p class="text-muted margen text-center"><span>© Park-Eat 2015</span></p>
+                </div>
+            </footer>
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>

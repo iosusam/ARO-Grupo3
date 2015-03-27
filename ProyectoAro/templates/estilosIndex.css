@@ -1,0 +1,36 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27-mar-2015, 10:18:03
+    Author     : AlbertoSantos
+*/
+
+.cabecera{
+    font-size: 80px;
+    color: #FA5858;
+    background-color: #F2F2F2;
+    margin-top: 0px;
+    padding: 30px;
+}
+
+.imagen{
+    margin: 40px;
+}
+
+.cuerpo{
+}
+
+.margenCabecera{
+    margin-bottom: 0px;
+}
+
+.margen{
+    margin-top: 30px;
+}
+
+.alturaPanel{
+    height: 140px;
+}
