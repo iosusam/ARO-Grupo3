@@ -7,30 +7,29 @@ and open the template in the editor.
     Created on : 27-mar-2015, 10:18:03
     Author     : AlbertoSantos
 */
-
+body{
+    background-color: #D8D8D8;
+}
 .cabecera{
     font-size: 80px;
     color: #FA5858;
-    background-color: #F2F2F2;
+    //Anterior
+    //background-color: #F2F2F2;
+    background-color: #F5DA81;
     margin-top: 0px;
-    padding: 30px;
+    height: 140px;
 }
-
 .imagen{
     margin: 40px;
 }
-
 .cuerpo{
 }
-
 .margenCabecera{
     margin-bottom: 0px;
 }
-
 .margen{
     margin-top: 30px;
 }
-
 .alturaPanel{
     height: 140px;
 }
