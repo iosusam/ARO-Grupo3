@@ -7,15 +7,10 @@ and open the template in the editor.
     Created on : 27-mar-2015, 10:18:03
     Author     : AlbertoSantos
 */
-body{
-    background-color: #D8D8D8;
-}
 .cabecera{
     font-size: 80px;
     color: #FA5858;
-    //Anterior
-    //background-color: #F2F2F2;
-    background-color: #F5DA81;
+    background-color: #F2F2F2;
     margin-top: 0px;
     height: 140px;
 }
