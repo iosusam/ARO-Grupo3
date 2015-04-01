@@ -19,4 +19,45 @@
     {
         echo file_get_contents("templates/acercade.html");
     }
+    
+    function vvalidarregistro($valor)
+    {
+        if ($valor == 1) {
+			
+            $cadena = file_get_contents("templates/validarformulario.html");
+
+            $cadena = str_replace("##titulopagina##", "Registro", $cadena);
+            $cadena = str_replace("##titulo##", "¡ENHORABUENA!", $cadena);
+            $cadena = str_replace("##cuerpo##", "Se ha completado el registro correctamente.", $cadena);
+            $cadena = str_replace("##boton##", "success", $cadena);
+            $cadena = str_replace("##enlace##", "index.php", $cadena);
+
+            echo $cadena;
+
+        }
+        elseif ($valor == 2) {
+            
+            $cadena = file_get_contents("templates/validarformulario.html");
+
+            $cadena = str_replace("##titulopagina##", "Registro", $cadena);
+            $cadena = str_replace("##titulo##", "¡AVISO!", $cadena);
+            $cadena = str_replace("##cuerpo##", "Ha habido un error al registrar el usuario. Vuelva a intentarlo más tarde.", $cadena);
+            $cadena = str_replace("##boton##", "danger", $cadena);
+            $cadena = str_replace("##enlace##", "index.php", $cadena);
+
+            echo $cadena;
+        }
+        elseif ($valor == 3) {
+            
+            $cadena = file_get_contents("templates/validarformulario.html");
+
+            $cadena = str_replace("##titulopagina##", "Registro", $cadena);
+            $cadena = str_replace("##titulo##", "¡AVISO!", $cadena);
+            $cadena = str_replace("##cuerpo##", "El correo ingresado ya está registrado. Pruebe con otro distinto.", $cadena);
+            $cadena = str_replace("##boton##", "warning", $cadena);
+            $cadena = str_replace("##enlace##", "index.php", $cadena);
+
+            echo $cadena;
+        }
+    }
 ?>

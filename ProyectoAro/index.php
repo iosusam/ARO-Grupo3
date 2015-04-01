@@ -59,7 +59,7 @@
                 break;
             case '2':
                 //Muestra  formulario de registro
-                vmostraregistro();
+                vvalidarregistro(mregistrarusuario());
                 break;
         }
     }
