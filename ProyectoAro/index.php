@@ -50,4 +50,36 @@
                 break;
         }
     }
+    
+    if ($accion == "registro") {
+        switch ($id) {
+            case '1':
+                //Muestra  formulario de registro
+                vmostraregistro();
+                break;
+            case '2':
+                //Muestra  formulario de registro
+                vmostraregistro();
+                break;
+        }
+    }
+    
+    if ($accion == "contacto") {
+        switch ($id) {
+            case '1':
+                //Muestra  formulario de registro
+                vmostracontacto();
+                break;
+        }
+    }
+    
+    if ($accion == "acercade") {
+        switch ($id) {
+            case '1':
+                //Muestra  formulario de registro
+                vmostraacercade();
+                break;
+        }
+    }
+    
 ?>
