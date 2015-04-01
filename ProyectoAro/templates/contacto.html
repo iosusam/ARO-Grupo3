@@ -18,24 +18,35 @@
         
         </head>
         <body>            
-            <nav class="navbar navbar-default margenCabecera" role="navigation">      
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse"
-                          data-target=".navbar-ex1-collapse">
-                        <span class="sr-only">Desplegar navegación</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <div class="collapse navbar-collapse navbar-ex1-collapse">
-                        <ul class="nav navbar-nav">                     
-                            <li><img src="../imagenes/cabecera.png" class="center-block img-responsive img-rounded" alt="Imagen responsive"></li>
-                            <li><a href="../Index.php">Park-Eat</a></li>                    
-                            <li><a href="../Index.php">Inicio</a></li>                     
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <nav class="navbar navbar-default margenCabecera" role="navigation">
+            <!-- El logotipo y el icono que despliega el menú se agrupan
+                 para mostrarlos mejor en los dispositivos móviles -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse"
+                      data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Desplegar navegación</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" >Park-Eat</a>
+            </div>
+
+            <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+                 otro elemento que se pueda ocultar al minimizar la barra -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="index.php">Inicio</a></li>
+                <li class="active"><a href="index.php?accion=contacto&id=1">Contacto</a></li>
+                <li><a href="index.php?accion=acercade&id=1">¿Quienes somos?</a></li>
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Log In</a></li>
+                <li><a href="index.php?accion=registro&id=1">Regístrate</a></li>
+              </ul>
+            </div>
+          </nav>
             <div class="cabecera">            
                 <p>Contacto</p>                          
             </div>           
@@ -73,7 +84,7 @@
             <br/>
             <footer class="footer navbar-bottom" >
                     <div class="pie">
-                        <img src="../imagenes/telefono.png" class="center-block img-responsive img-rounded" alt="Imagen responsive">
+                        <img src="imagenes/telefono.png" class="center-block img-responsive img-rounded" alt="Imagen responsive">
                           <br/><br/>   
                         <p class="text-muted margen text-center"><span>© Park-Eat 2015</span></p>
                     </div>
