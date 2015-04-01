@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Park-Eat</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="templates/estilosRegistro.css" />
+        <script language=javascript>
+            function validarFormulario(formularioRegistro)
+            {
+
+                var nombre = formularioRegistro.usuario.value;   
+                if(nombre == "")
+                {
+                    formularioRegistro.usuario.focus();
+                    alert("Debes introducir un nombre.");
+                    return false;
+                }
+
+                var correo = formularioRegistro.email.value;
+                if(correo == "")
+                {
+                    formularioRegistro.email.focus();
+                    alert("Debes introducir un correo.");
+                    return false;
+                }
+
+                var pass = formularioRegistro.pass.value;
+                if(pass == "")
+                {
+                    formularioRegistro.pass.focus();
+                    alert("Debes introducir una contraseña.");
+                    return false;
+                }
+
+                var pass1 = formularioRegistro.pass1.value;
+                if(pass1 == "")
+                {
+                    formularioRegistro.pass1.focus();
+                    alert("Debes repetir la contraseña.");
+                    return false;
+                }
+                
+                if (pass != pass1) 
+		    {
+		    	formularioRegistro.pass.focus();
+		    	alert("Las contraseñas no coinciden");
+		    	return false;
+		    }
+
+                return true;
+            }
+	</script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default margenCabecera" role="navigation">
+        <!-- El logotipo y el icono que despliega el menú se agrupan
+             para mostrarlos mejor en los dispositivos móviles -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse"
+                  data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Desplegar navegación</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" >Park-Eat</a>
+        </div>
+
+        <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+             otro elemento que se pueda ocultar al minimizar la barra -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.php">Inicio</a></li>
+            <li><a href="templates/contacto.html">Contacto</a></li>
+            <li><a href="templates/acercade.html">¿Quienes somos?</a></li>
+          </ul>
+            
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Log In</a></li>
+            <li><a href="index.php?accion=registro&id=1">Regístrate</a></li>
+          </ul>
+        </div>
+      </nav>
+        <form class="col-lg-offset-1" id="formularioRegistro" method="Post" action="index.php" onsubmit="return validarFormulario(this);">
+            <h2 class="center-block">
+                ¿Aún no te has registrado? Registrate!
+            </h2>
+            <br><br>
+            <b class="nuevaCuenta">Crea una cuenta nueva</b>
+            <br>
+            <hr class="col-lg-11">
+            <div class="form-group col-lg-4">								    	
+                <label>Nombre de usuario*</label>
+                <input type="text" name="Nombre" id="usuario" class="form-control" placeholder="Nombre">
+
+                <label>Correo*</label>
+                <input type="email" name="Correo" id="email" class="form-control" placeholder="Correo">
+
+                <label>Contraseña*</label>
+                <input type="password" name="Password" id="pass" class="form-control" placeholder="Contraseña">
+
+                <label>Repite contraseña*</label>
+                <input type="password" name="PasswordRepetida" id="pass1" class="form-control" placeholder="Contraseña">
+                <br>
+                <input type="hidden" name="accion" value="registro">
+                <input type="hidden" name="id" value="2">
+                
+                <input type="submit" class="btn btn-success pull-right" value="Registrarse">
+                <br><br>
+                <div class="row text-danger">
+                    Todos los campos marcados con * son obligatorios
+                </div>
+            </div>
+        </form>
+        <footer class="footer navbar-fixed-bottom" >
+                <div class="container">
+                    <p class="text-muted margen text-center"><span>© Park-Eat 2015</span></p>
+                </div>
+            </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </body>
+</html>
