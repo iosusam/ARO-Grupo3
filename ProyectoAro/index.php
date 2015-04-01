@@ -82,4 +82,16 @@
         }
     }
     
+    if ($accion == "login") {
+        switch ($id) {
+            case '1':
+                //Muestra el formulario del login
+                vmostrarlogin();
+                break;
+            
+            case '2':
+                
+        }
+    }
+    
 ?>

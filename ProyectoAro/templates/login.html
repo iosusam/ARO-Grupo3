@@ -22,7 +22,7 @@ and open the template in the editor.
                 if(usuario == "")
                 {
                     formularioLogin.usuario.focus();
-                    alert("Introduce el Usuario:");
+                    alert("Debes introducir el nombre de usuario");
                     return false;
                 }
 
@@ -30,7 +30,7 @@ and open the template in the editor.
                 if(password == "")
                 {
                     formularioRegistro.email.focus();
-                    alert("Debes introducir un correo.");
+                    alert("Debes introducir la contraseña");
                     return false;
                 }
 
@@ -68,12 +68,12 @@ and open the template in the editor.
           </ul>
         </div>
       </nav>
-        <form class="col-lg-offset-1" id="formularioRegistro" method="Post" action="index.php" onsubmit="return validarFormulario(this);">
+        <form class="col-lg-offset-1" id="login" method="Post" action="index.php" onsubmit="return validarLogin(this);">
             <h2 class="center-block">
-                ¿Aún no te has registrado? Registrate!
+                ¡Accede a tu cuenta!
             </h2>
             <br><br>
-            <b class="nuevaCuenta">Crea una cuenta nueva</b>
+            <b class="nuevaCuenta">Introduce los datos de tu cuenta</b>
             <br>
             <hr class="col-lg-11">
             <div class="form-group col-lg-4">								    	
@@ -83,10 +83,8 @@ and open the template in the editor.
                 <label>Password*</label>
                 <input type="password" name="Password" id="pass" class="form-control" placeholder="Contraseña">
 
-                <label>Repite Password*</label>
-                <input type="password" name="PasswordRepetida" id="pass1" class="form-control" placeholder="Contraseña">
                 <br>
-                <input type="hidden" name="accion" value="registro">
+                <input type="hidden" name="accion" value="login">
                 <input type="hidden" name="id" value="2">
                 
                 <input type="submit" class="btn btn-success pull-right" value="Log in">
