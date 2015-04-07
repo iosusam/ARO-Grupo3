@@ -68,5 +68,11 @@
         }
 		
     }
+    
+    function mloguearusuario()
+    {
+        
+    }
+    
 
 ?>

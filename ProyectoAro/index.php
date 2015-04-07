@@ -90,6 +90,9 @@
                 break;
             
             case '2':
+                //Muestra  formulario del login
+                vvalidarlogin(mloguearusuario());
+                break;
                 
         }
     }
