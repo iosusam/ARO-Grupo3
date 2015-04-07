@@ -112,7 +112,7 @@
             $cadena = str_replace("##titulo##", "¡AVISO!", $cadena);
             $cadena = str_replace("##cuerpo##", "El Password ingresado es vacio. Vuelva a intentarlo.", $cadena);
             $cadena = str_replace("##boton##", "warning", $cadena);
-            $cadena = str_replace("##enlace##", "index.php", $cadena);
+            $cadena = str_replace("##enlace##", "index.php?accion=login&id=1", $cadena);
 
             echo $cadena;
         }

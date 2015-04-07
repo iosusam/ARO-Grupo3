@@ -86,13 +86,13 @@
         $contrasenaMD5 = md5($password);
         
 	conectar();
-	if (strlen($_POST["Nombre"]) == 0)
+	if (strlen($nombre) == 0)
 	{
 		return 3;
 	}
 	else
 	{
-		if (strlen($_POST["Password"]) == 0)
+		if (strlen($password) == 0)
 		{
 			return 4;
 		}
