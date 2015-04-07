@@ -88,7 +88,7 @@
             $cadena = str_replace("##titulo##", "¡AVISO!", $cadena);
             $cadena = str_replace("##cuerpo##", "Ha habido un error al Loguear el usuario. Vuelva a intentarlo más tarde.", $cadena);
             $cadena = str_replace("##boton##", "danger", $cadena);
-            $cadena = str_replace("##enlace##", "index.php", $cadena);
+            $cadena = str_replace("##enlace##", "index.php?accion=login&id=1", $cadena);
 
             echo $cadena;
         }
@@ -98,21 +98,9 @@
 
             $cadena = str_replace("##titulopagina##", "Login", $cadena);
             $cadena = str_replace("##titulo##", "¡AVISO!", $cadena);
-            $cadena = str_replace("##cuerpo##", "Ha habido un error al Loguear el usuario. Vuelva a intentarlo más tarde.", $cadena);
+            $cadena = str_replace("##cuerpo##", "El Usuario ingresado es vacio. Vuelva a intentarlo.", $cadena);
             $cadena = str_replace("##boton##", "danger", $cadena);
-            $cadena = str_replace("##enlace##", "index.php", $cadena);
-
-            echo $cadena;
-        }
-        elseif ($valor == 3) {
-            
-            $cadena = file_get_contents("templates/validarformulario.html");
-
-            $cadena = str_replace("##titulopagina##", "Login", $cadena);
-            $cadena = str_replace("##titulo##", "¡AVISO!", $cadena);
-            $cadena = str_replace("##cuerpo##", "El Nombre ingresado es erroneo o vacio. Pruebe con otro distinto.", $cadena);
-            $cadena = str_replace("##boton##", "warning", $cadena);
-            $cadena = str_replace("##enlace##", "index.php", $cadena);
+            $cadena = str_replace("##enlace##", "index.php?accion=login&id=1", $cadena);
 
             echo $cadena;
         }
@@ -122,7 +110,7 @@
 
             $cadena = str_replace("##titulopagina##", "Login", $cadena);
             $cadena = str_replace("##titulo##", "¡AVISO!", $cadena);
-            $cadena = str_replace("##cuerpo##", "El Password ingresado es erroneo o vacio. Pruebe con otro distinto.", $cadena);
+            $cadena = str_replace("##cuerpo##", "El Password ingresado es vacio. Vuelva a intentarlo.", $cadena);
             $cadena = str_replace("##boton##", "warning", $cadena);
             $cadena = str_replace("##enlace##", "index.php", $cadena);
 

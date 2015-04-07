@@ -105,8 +105,8 @@
 			if ($num_filas > 0 )
 			{
 				$_SESSION["Datos_Usuario"] = $valor;
-				$_SESSION["Datos_Usuario"][2] = $_POST["Password"];
-				$_SESSION["Datos_Usuario"]["Password"] = $_POST["Password"];
+				$_SESSION["Datos_Usuario"][2] = $contrasenaMD5;
+				$_SESSION["Datos_Usuario"]["Password"] = $contrasenaMD5;
 				if (($_SESSION["Datos_Usuario"]["Nombre"]=="Admin") && ($_SESSION["Datos_Usuario"]["Password"]=="Admin"))
 				{
 					return 5;
