@@ -59,10 +59,9 @@
 
             echo $cadena;
         }
-        
-        function vmostrarlogin()
-        {
+    }
+    function vmostrarlogin()
+    {
             echo file_get_contents("templates/login.html");
-        }
     }
 ?>
