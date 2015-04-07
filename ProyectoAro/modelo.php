@@ -71,7 +71,55 @@
     
     function mloguearusuario()
     {
+        /************************************************
+		FunciÃ³n encargada de realizar la validaciÃ³n de login
+		Devuelve:
+		 1 --> Todo ha ido bien
+		 2 --> El login no es correcto
+		 3 --> No se ha introducido el usuario
+		 4 --> No se ha introducido la contraseña
+                 5-->Se ha conectado el ADMIN
+	********************************************************/
         
+        $nombre = limpiarCadena($_POST["Nombre"]);
+        $password = limpiarCadena($_POST["Password"]);
+        $contrasenaMD5 = md5($password);
+        
+	conectar();
+	if (strlen($_POST["Nombre"]) == 0)
+	{
+		return 3;
+	}
+	else
+	{
+		if (strlen($_POST["Password"]) == 0)
+		{
+			return 4;
+		}
+		else
+		{
+			$consulta = "select * from Usuario where Nombre= '$nombre' and Contraseña = '$contrasenaMD5'";
+			$resultado = mysql_query($consulta);
+			$valor = mysql_fetch_array($resultado);
+			$num_filas =  mysql_num_rows($resultado);
+			if ($num_filas > 0 )
+			{
+				$_SESSION["Datos_Usuario"] = $valor;
+				$_SESSION["Datos_Usuario"][2] = $_POST["Password"];
+				$_SESSION["Datos_Usuario"]["Password"] = $_POST["Password"];
+				if (($_SESSION["Datos_Usuario"]["Nombre"]=="Admin") && ($_SESSION["Datos_Usuario"]["Password"]=="Admin"))
+				{
+					return 5;
+				}else{
+					return 1;
+				}
+			}
+			else
+			{
+				return 2;
+			}
+		}
+        }	
     }
     
 
