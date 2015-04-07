@@ -88,7 +88,7 @@
             $cadena = str_replace("##titulo##", "¡AVISO!", $cadena);
             $cadena = str_replace("##cuerpo##", "Ha habido un error al Loguear el usuario. Vuelva a intentarlo más tarde.", $cadena);
             $cadena = str_replace("##boton##", "danger", $cadena);
-            //$cadena = str_replace("##enlace##", "index.php", $cadena);
+            $cadena = str_replace("##enlace##", "index.php", $cadena);
 
             echo $cadena;
         }
@@ -100,7 +100,7 @@
             $cadena = str_replace("##titulo##", "¡AVISO!", $cadena);
             $cadena = str_replace("##cuerpo##", "Ha habido un error al Loguear el usuario. Vuelva a intentarlo más tarde.", $cadena);
             $cadena = str_replace("##boton##", "danger", $cadena);
-            //$cadena = str_replace("##enlace##", "index.php", $cadena);
+            $cadena = str_replace("##enlace##", "index.php", $cadena);
 
             echo $cadena;
         }

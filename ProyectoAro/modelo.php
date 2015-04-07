@@ -98,7 +98,7 @@
 		}
 		else
 		{
-			$consulta = "select * from Usuario where Nombre= '$nombre' and Contraseña = '$contrasenaMD5'";
+			$consulta = "select * from Usuario where Nombre= '$nombre' and Contrasena = '$contrasenaMD5'";
 			$resultado = mysql_query($consulta);
 			$valor = mysql_fetch_array($resultado);
 			$num_filas =  mysql_num_rows($resultado);
