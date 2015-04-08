@@ -130,12 +130,16 @@
     **********************************************/
     function comprobarusuario()
     {
-	if (isset($_SESSION["Datos_Usuario"]["Nombre_Usuario"]))
+        $nombre = limpiarCadena($_POST["Nombre"]);
+        $password = limpiarCadena($_POST["Password"]);
+        $contrasenaMD5 = md5($password);
+        
+	if (isset($_SESSION["Datos_Usuario"]["Nombre"]))
 	{
 		if ($_SESSION["Datos_Usuario"]["Password"])
 		{
 			conectar();
-			$consulta = "select * from final_usuarios where Nombre_Usuario = '" . $_POST["usuario"]. "' and Password = '" . md5($_POST["password"]) . "'";
+			$consulta = "select * from Usuarios where Nombre = '$nombre' and Contrasena = '$contrasenaMD5'";
 			$resultado = mysql_query($consulta);
 			$datos = mysql_fetch_array($resultado);
 			if (count($datos) > 0)
