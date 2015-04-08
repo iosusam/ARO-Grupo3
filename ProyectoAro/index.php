@@ -96,5 +96,13 @@
                 
         }
     }
+    if ($accion == "logout") {
+        switch ($id) {
+            case '1':
+                session_destroy();
+		vmostrarlogout(1);
+		break;
+        }
+    }
     
 ?>

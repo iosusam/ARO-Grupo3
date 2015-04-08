@@ -19,7 +19,7 @@
     {
         echo file_get_contents("templates/acercade.html");
     }
-    
+    //Funcion que valida el registro
     function vvalidarregistro($valor)
     {
         if ($valor == 1) {
@@ -64,7 +64,7 @@
     {
             echo file_get_contents("templates/login.html");
     }
-    
+    //Funcion que muestra la validacion del Login, ya sea correcto o incorrecto
     function vvalidarlogin($valor)
     {
         if ($valor == 1) {
@@ -75,7 +75,7 @@
             $cadena = str_replace("##titulo##", "¡ENHORABUENA!", $cadena);
             $cadena = str_replace("##cuerpo##", "Se ha Logueado correctamente.", $cadena);
             $cadena = str_replace("##boton##", "success", $cadena);
-            $cadena = str_replace("##enlace##", "index.php", $cadena);
+            $cadena = str_replace("##enlace##", "templates/index_logueado.html", $cadena);
 
             echo $cadena;
 
@@ -129,4 +129,22 @@
             echo $cadena;
         }
     }
+    //Mostrar al pulsar Boton desconectarse
+    function vmostrarlogout($valor)
+    {
+        if ($valor == 1) {
+			
+            $cadena = file_get_contents("templates/validarformulario.html");
+
+            $cadena = str_replace("##titulopagina##", "Log Out", $cadena);
+            $cadena = str_replace("##titulo##", "¡HASTA LUEGO!", $cadena);
+            $cadena = str_replace("##cuerpo##", "Ha salido correctamente", $cadena);
+            $cadena = str_replace("##boton##", "success", $cadena);
+            $cadena = str_replace("##enlace##", "index.php", $cadena);
+
+            echo $cadena;
+
+        }
+    }
+    
 ?>

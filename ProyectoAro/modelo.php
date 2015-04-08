@@ -104,8 +104,8 @@
 			$num_filas =  mysql_num_rows($resultado);
 			if ($num_filas > 0 )
 			{
-				$_SESSION["Datos_Usuario"] = $valor;
-				$_SESSION["Datos_Usuario"][2] = $contrasenaMD5;
+				$_SESSION["Datos_Usuario"]["Nombre"] = $nombre;
+				//$_SESSION["Datos_Usuario"][2] = $contrasenaMD5;
 				$_SESSION["Datos_Usuario"]["Password"] = $contrasenaMD5;
 				if (($_SESSION["Datos_Usuario"]["Nombre"]=="Admin") && ($_SESSION["Datos_Usuario"]["Password"]=="Admin"))
 				{
@@ -120,6 +120,42 @@
 			}
 		}
         }	
+    }
+    
+    /***********************************************
+	Verificar si los datos de la sesion corresponden a usuario valido
+	Devuelve:
+	1 --> usuario correcto
+	-1 --> usuario incorrecto
+    **********************************************/
+    function comprobarusuario()
+    {
+	if (isset($_SESSION["Datos_Usuario"]["Nombre_Usuario"]))
+	{
+		if ($_SESSION["Datos_Usuario"]["Password"])
+		{
+			conectar();
+			$consulta = "select * from final_usuarios where Nombre_Usuario = '" . $_POST["usuario"]. "' and Password = '" . md5($_POST["password"]) . "'";
+			$resultado = mysql_query($consulta);
+			$datos = mysql_fetch_array($resultado);
+			if (count($datos) > 0)
+			{
+				return 1;
+			}
+			else
+			{
+				return -1;
+			}
+		}
+		else
+		{
+			return -1;
+		}
+	}
+	else
+	{
+		return -1;
+	}
     }
     
 
