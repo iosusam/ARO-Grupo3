@@ -105,4 +105,12 @@
         }
     }
     
+    if ($accion == "buscar") {
+        switch ($id) {
+            case '1':
+		vmostrarbuscarporresturante();
+		break;
+        }
+    }
+    
 ?>
