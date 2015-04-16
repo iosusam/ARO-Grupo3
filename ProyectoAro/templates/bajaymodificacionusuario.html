@@ -17,7 +17,7 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="templates/estilosIndex.css" />
     </head>
     <body>
-        <nav class="navbar navbar-default margenCabecera" role="navigation">
+      <nav class="navbar navbar-default margenCabecera" role="navigation">
         <!-- El logotipo y el icono que despliega el menú se agrupan
              para mostrarlos mejor en los dispositivos móviles -->
         <div class="navbar-header">
@@ -57,18 +57,28 @@ and open the template in the editor.
             Park-Eat
         </div>    
 
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">DATOS USUARIO</h3>
+                    </div>
+                    <div class="panel-body text-justify alturaPanel">
+                                
+                        <label class="label label-default" for="Usuario">Usuario:</label>##Usuario##
+                                   
+                        <br/><br/>
 
-        <label for="Usuario">Usuario:</label>##Usuario##
-
-        <br /><br />
-
-        <label for="Email">Email:</label>##Email##
-
-        <br /><br />
-        
-        <a href="index.php?accion=perfil&id=4"><button>Darse de baja</button></a>
-        <a href="index.php?accion=perfil&id=2"><button>Modificar Datos</button></a>
-        
+                        <label class="label label-default" for="Email">Email:</label>##Email##
+                                   
+                        <br/><br/>
+                                    
+                        <button type="button" class="btn btn-info left-block" onclick="window.location.href='index.php?accion=perfil&id=4'">Darse de baja</button>
+                        <button type="button" class="btn btn-info rigth-block" onclick="window.location.href='index.php?accion=perfil&id=2'">Modificar Datos</button>
+                    </div>
+                </div>
+           </div>
+        </div>
         <footer class="footer navbar-bottom" >
                 <div class="container">
                     <p class="text-muted margen text-center"><span>© Park-Eat 2015</span></p>
