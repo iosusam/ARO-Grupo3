@@ -13,52 +13,48 @@ and open the template in the editor.
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="templates/estilosRegistro.css" />
+        <link rel="stylesheet" type="text/css" href="templates/buscar_por_restaurante.css" />
     </head>
     <body>
         <nav class="navbar navbar-default margenCabecera" role="navigation">
         <!-- El logotipo y el icono que despliega el menú se agrupan
              para mostrarlos mejor en los dispositivos móviles -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse"
-                  data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Desplegar navegación</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.php">Park-Eat</a>
-        </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Desplegar navegación</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php">Park-Eat</a>
+            </div>
 
         <!-- Agrupar los enlaces de navegación, los formularios y cualquier
              otro elemento que se pueda ocultar al minimizar la barra -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="templates/contacto.html">Contacto</a></li>
-            <li><a href="templates/acercade.html">¿Quienes somos?</a></li>
-          </ul>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="templates/contacto.html">Contacto</a></li>
+                    <li><a href="templates/acercade.html">¿Quienes somos?</a></li>
+                </ul>
             
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.php?accion=login&id=1">Log In</a></li>
-            <li><a href="index.php?accion=registro&id=1">Regístrate</a></li>
-          </ul>
-        </div>
-      </nav>
-        <form class="col-lg-offset-1" id="formularioRegistro" method="Post" action="index.php" onsubmit="return validarFormulario(this);">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.php?accion=login&id=1">Log In</a></li>
+                    <li><a href="index.php?accion=registro&id=1">Regístrate</a></li>
+                </ul>
+            </div>
+        </nav>
+        <form class="col-lg-offset-1" id="formularioRegistro" method="Post" action="index.php" >
             <h2 class="center-block">
                 ¿que restaurante desea consultar?
             </h2>
-            <br><br>
-            <br>
-            
-
+            <br><br><br>
             <div class="btn-group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     Elija el resturante
                     <span class="caret"></span>
                 </button>
- 
+                
                 <ul class="dropdown-menu" role="menu">
                     ##linea##
                     <li><a href="#">##Restaurante##</a></li>
@@ -74,10 +70,10 @@ and open the template in the editor.
 
         </form>
         <footer class="footer navbar-fixed-bottom" >
-                <div class="container">
-                    <p class="text-muted margen text-center"><span>© Park-Eat 2015</span></p>
-                </div>
-            </footer>
+            <div class="container">
+                <p class="text-muted margen text-center"><span>© Park-Eat 2015</span></p>
+            </div>
+        </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
