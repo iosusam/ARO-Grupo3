@@ -22,7 +22,7 @@
     //mostrar pagina para buscar por resturante
     function vmostrarbuscarporresturante()
     {
-        echo file_get_contents("templates/buscar_por_restaurante.html");
+        echo file_get_contents("templates/buscar.html");
     }
     //Funcion que valida el registro
     function vvalidarregistro($valor)
@@ -70,58 +70,29 @@
             echo file_get_contents("templates/login.html");
     }
     //Funcion que muestra la validacion del Login, ya sea correcto o incorrecto
-    function vvalidarlogin($valor)
+    function vvalidarlogin($usuario)
     {
-        if ($valor == 1) {
+        if (mysql_num_rows($usuario) == 1) {
+            
+            $datosusuario = mysql_fetch_array($usuario);
+            $_SSESION["usuario"] = $datosusuario["Nombre"];
+            $_SSESION["contrasena"] = $datosusuario["Contrasena"];
+            $_SSESION["correo"] = $datosusuario["Correo"];
 			
             $cadena = file_get_contents("templates/validarformulario.html");
 
             $cadena = str_replace("##titulopagina##", "Login", $cadena);
             $cadena = str_replace("##titulo##", "¡ENHORABUENA!", $cadena);
-            $cadena = str_replace("##cuerpo##", "Se ha Logueado correctamente.", $cadena);
+            $cadena = str_replace("##cuerpo##", "Se ha logueado correctamente.", $cadena);
             $cadena = str_replace("##boton##", "success", $cadena);
-            $cadena = str_replace("##enlace##", "templates/index_logueado.html", $cadena);
+            $cadena = str_replace("##enlace##", "index.php?accion=menu&id=1", $cadena);
 
             echo $cadena;
 
         }
-        elseif ($valor == 2) {
-            
-            $cadena = file_get_contents("templates/validarformulario.html");
-
-            $cadena = str_replace("##titulopagina##", "Login", $cadena);
-            $cadena = str_replace("##titulo##", "¡AVISO!", $cadena);
-            $cadena = str_replace("##cuerpo##", "Ha habido un error al Loguear el usuario. Vuelva a intentarlo más tarde.", $cadena);
-            $cadena = str_replace("##boton##", "danger", $cadena);
-            $cadena = str_replace("##enlace##", "index.php?accion=login&id=1", $cadena);
-
-            echo $cadena;
-        }
-        elseif ($valor == 3) {
-            
-            $cadena = file_get_contents("templates/validarformulario.html");
-
-            $cadena = str_replace("##titulopagina##", "Login", $cadena);
-            $cadena = str_replace("##titulo##", "¡AVISO!", $cadena);
-            $cadena = str_replace("##cuerpo##", "El Usuario ingresado es vacio. Vuelva a intentarlo.", $cadena);
-            $cadena = str_replace("##boton##", "danger", $cadena);
-            $cadena = str_replace("##enlace##", "index.php?accion=login&id=1", $cadena);
-
-            echo $cadena;
-        }
-        elseif ($valor == 4) {
-            
-            $cadena = file_get_contents("templates/validarformulario.html");
-
-            $cadena = str_replace("##titulopagina##", "Login", $cadena);
-            $cadena = str_replace("##titulo##", "¡AVISO!", $cadena);
-            $cadena = str_replace("##cuerpo##", "El Password ingresado es vacio. Vuelva a intentarlo.", $cadena);
-            $cadena = str_replace("##boton##", "warning", $cadena);
-            $cadena = str_replace("##enlace##", "index.php?accion=login&id=1", $cadena);
-
-            echo $cadena;
-        }
-        elseif ($valor == 5) {
+        /*
+         * ADMIN
+         * elseif ($usuario == 5) {
             
             $cadena = file_get_contents("templates/validarformulario.html");
 
@@ -130,6 +101,18 @@
             $cadena = str_replace("##cuerpo##", "SE HA CONECTADO COMO ADMIN.", $cadena);
             $cadena = str_replace("##boton##", "success", $cadena);
             $cadena = str_replace("##enlace##", "index.php", $cadena);
+
+            echo $cadena;
+        }*/
+        else {
+            
+            $cadena = file_get_contents("templates/validarformulario.html");
+
+            $cadena = str_replace("##titulopagina##", "Login", $cadena);
+            $cadena = str_replace("##titulo##", "¡AVISO!", $cadena);
+            $cadena = str_replace("##cuerpo##", "Usuario o contraseña incorrectos. Vuelva a intentarlo.", $cadena);
+            $cadena = str_replace("##boton##", "danger", $cadena);
+            $cadena = str_replace("##enlace##", "index.php?accion=login&id=1", $cadena);
 
             echo $cadena;
         }
