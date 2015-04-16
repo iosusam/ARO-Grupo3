@@ -73,7 +73,6 @@
     {
         $correo = limpiarCadena($_POST["Correo"]);
         $pass = md5(limpiarCadena($_POST["Password"]));
-        
 
         conectar();
 

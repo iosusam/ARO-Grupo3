@@ -75,9 +75,9 @@
         if (mysql_num_rows($usuario) == 1) {
             
             $datosusuario = mysql_fetch_array($usuario);
-            $_SSESION["usuario"] = $datosusuario["Nombre"];
-            $_SSESION["contrasena"] = $datosusuario["Contrasena"];
-            $_SSESION["correo"] = $datosusuario["Correo"];
+            $_SESSION["usuario"] = $datosusuario["Nombre"];
+            $_SESSION["contrasena"] = $datosusuario["Contrasena"];
+            $_SESSION["correo"] = $datosusuario["Correo"];
 			
             $cadena = file_get_contents("templates/validarformulario.html");
 
@@ -133,6 +133,11 @@
             echo $cadena;
 
         }
+    }
+    
+    function vmostrarindexlogueado()
+    {
+        echo file_get_contents("templates/index_logueado.html");
     }
     
 ?>

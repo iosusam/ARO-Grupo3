@@ -96,7 +96,7 @@
                 
         }
     }
-    if (isset($_SESSION["Nombre"]) && isset($_SESSION["Password"])) {
+    if (isset($_SESSION["usuario"]) && isset($_SESSION["contrasena"])) {
         
         if ($accion == "menu"){
             switch($id){
