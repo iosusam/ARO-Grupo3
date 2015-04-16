@@ -8,21 +8,31 @@ and open the template in the editor.
     Author     : samuel
 */
 body{
-    background-color: #D8D8D8;
+    background-color: white;
 }
-.cabecera{   
-    color: #FA5858;   
-    text-align: center;
-    font-size: 60px;
-    margin-top: 50px;
+.cabecera {   
+    float: left;
+    margin-left: 30px;
+    color: black;   
+}
+.ladocabecera{
+    float: left;
+}
+.ladocabecera p{
+    font-size: 18px;
+    font-family:sans-serif;
+}
+.ladocabecera h1{
+    text-align: left;
+    font-family:cursive; 
 }
 .nav{
     font-size: 17px;    
 }
 .col-lg-4{
     margin-top: 40px;
-    margin-left: 100px;
-    width: 450px;
+    margin-left: 60px;
+    width: 400px;
 }
 .panel-heading{
     text-align: center;
