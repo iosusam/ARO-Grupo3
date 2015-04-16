@@ -18,18 +18,18 @@ and open the template in the editor.
             function validarLogin(formularioLogin)
             {
 
-                var usuario = formularioLogin.usuario.value;   
-                if(usuario == "")
+                var correo = formularioLogin.correo.value;   
+                if(correo == "")
                 {
-                    formularioLogin.usuario.focus();
-                    alert("Debes introducir el nombre de usuario");
+                    formularioLogin.correo.focus();
+                    alert("Debes introducir un correo");
                     return false;
                 }
 
-                var password = formularioLogin.email.value;
+                var password = formularioLogin.pass.value;
                 if(password == "")
                 {
-                    formularioRegistro.email.focus();
+                    formularioLogin.pass.focus();
                     alert("Debes introducir la contraseña");
                     return false;
                 }
@@ -58,8 +58,8 @@ and open the template in the editor.
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Inicio</a></li>
-            <li><a href="templates/contacto.html">Contacto</a></li>
-            <li><a href="templates/acercade.html">¿Quienes somos?</a></li>
+            <li><a href="index.php?accion=contacto&id=1">Contacto</a></li>
+            <li><a href="index.php?accion=acercade&id=1">¿Quienes somos?</a></li>
           </ul>
             
           <ul class="nav navbar-nav navbar-right">
@@ -78,7 +78,7 @@ and open the template in the editor.
             <hr class="col-lg-11">
             <div class="form-group col-lg-4">								    	
                 <label>Nombre de usuario*</label>
-                <input type="text" name="Nombre" id="usuario" class="form-control" placeholder="Nombre">
+                <input type="text" name="Correo" id="correo" class="form-control" placeholder="alguien@example.com">
 
                 <label>Password*</label>
                 <input type="password" name="Password" id="pass" class="form-control" placeholder="Contraseña">
