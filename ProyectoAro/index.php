@@ -96,12 +96,23 @@
                 
         }
     }
-    if ($accion == "logout") {
-        switch ($id) {
-            case '1':
-                session_destroy();
-		vmostrarlogout(1);
-		break;
+    if (isset($_SESSION["Nombre"]) && isset($_SESSION["Password"])) {
+        
+        if ($accion == "menu"){
+            switch($id){
+                case '1':
+                    //Muestra la pagina principal del usuario logueado
+                    vmostrarindexlogueado();
+            }
+        }
+        
+        if ($accion == "logout") {
+            switch ($id) {
+                case '1':
+                    session_destroy();
+                    vmostrarlogout(1);
+                    break;
+                }
         }
     }
     
