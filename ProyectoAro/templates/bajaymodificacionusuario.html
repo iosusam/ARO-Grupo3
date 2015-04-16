@@ -44,7 +44,7 @@ and open the template in the editor.
               <div class="btn-group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> ##Nombre_Usuario## <span class="caret"></span></button>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="index.php?accion=perfil&id=1">Perfil</a></li>
+                  <li><a href="#">Perfil</a></li>
                   <li class="divider"></li>
                   <li><a href="index.php?accion=logout&id=1">Desconectar</a></li>
                 </ul>
@@ -56,33 +56,20 @@ and open the template in the editor.
             <!--<img src="imagenes/Log.png" class="img-responsive img-rounded" alt="Logo Park-Eat">-->
             Park-Eat
         </div>    
-        <div  class="cuerpo">
-            <div class="container">
-                <p class="lead text-center margen">Encuentra donde aparcar cuando vayas a comer.</p>
-                <div class="col-lg-12 imagen">
-                      <p class="center-block">Cum sociis natoque penatibus et magnis dis parturient montes,nascetur ridiculus mus. Donec llamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                </div>
-                <div class="imagen">
-                      <img src="imagenes/Map-Logo.png" class="center-block img-responsive img-rounded" alt="foto pagina inicio">
-                </div>
-                <div class="row">
-                    <div>
-                        <div class="col-lg-12">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                  <h3 class="panel-title text-center">Comienza a buscar</h3>
-                                </div>
-                                <div class="panel-body text-justify alturaPanel">
-                                    Si lo deseas puedes comenzar a buscar en nuestra web pulsando el siguiente botón. Recuerda que ara obtener las valoraciones debes registrarte.
-                                    <br><br>
-                                    <button type="button" class="btn btn-info center-block" onclick="window.location.href='index.php?accion=buscar&id=1'">Buscar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <footer class="footer navbar-bottom" >
+
+
+        <label for="Usuario">Usuario:</label>##Usuario##
+
+        <br /><br />
+
+        <label for="Email">Email:</label>##Email##
+
+        <br /><br />
+        
+        <a href="index.php?accion=perfil&id=4"><button>Darse de baja</button></a>
+        <a href="index.php?accion=perfil&id=2"><button>Modificar Datos</button></a>
+        
+        <footer class="footer navbar-bottom" >
                 <div class="container">
                     <p class="text-muted margen text-center"><span>© Park-Eat 2015</span></p>
                 </div>
@@ -93,4 +80,3 @@ and open the template in the editor.
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     </body>
 </html>
-

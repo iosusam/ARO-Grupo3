@@ -140,4 +140,15 @@
         echo file_get_contents("templates/index_logueado.html");
     }
     
+    function vmostrarlistadocliente($datosusuario)
+    {
+	$cadena = file_get_contents("templates/bajaymodificacionusuario.html");
+	$cadena = str_replace("##Usuario##", $datosusuario[1], $cadena);
+	$cadena = str_replace("##Email##", $datosusuario[2], $cadena);
+		
+	echo $cadena;
+		
+		
+    }
+    
 ?>

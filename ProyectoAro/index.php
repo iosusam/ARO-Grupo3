@@ -106,6 +106,31 @@
             }
         }
         
+        if($accion == "perfil"){
+            switch ($id){
+		case 1 : 
+                    //Mostrar los datos del cliente
+                    vmostrarlistadocliente(mlistadocliente());
+                    break;
+		case 2 : 
+                    //Mostrar el formulario con los datos de la persona a modificar
+                    vmostrarmodificarcliente(mlistadocliente());
+                    break;
+		case 3 : 
+                    //Validar la modificaciÃ³n en la base de datos
+                    vvalidarmodificarcliente(mvalidarmodificarcliente());
+                    break;
+		case 4 : 
+                    //Mostrar los datos de la persona a eliminar
+                    vmostrarbajacliente(mlistadocliente());
+                    break;
+		case 5 : 
+                    //Validar la eliminaciÃ³n
+                    vvalidarbajacliente(mvalidarbajacliente());
+                    break;
+            }
+	}
+        
         if ($accion == "logout") {
             switch ($id) {
                 case '1':

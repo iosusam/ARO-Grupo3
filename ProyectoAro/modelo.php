@@ -89,6 +89,17 @@
             return $consulta;
         }
     }
+    function mlistadocliente()
+    {
+        $correo = limpiarCadena($_SESSION["correo"]);
+        $pass = md5(limpiarCadena($_SESSION["contrasena"]));
+        
+        
+	conectar();
+	$consulta = mysql_query("select * from Usuario where Correo like '$correo' ");
+	$resultado = mysql_fetch_array($consulta);
+	return $resultado;
+    }
     
 
 ?>
