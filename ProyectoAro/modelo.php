@@ -74,7 +74,6 @@
         $correo = limpiarCadena($_POST["Correo"]);
         $pass = md5(limpiarCadena($_POST["Password"]));
         
-        echo $correo . $pass;
 
         conectar();
 
@@ -82,13 +81,11 @@
 
         if (mysql_num_rows($consulta) == 1)
         {
-            echo "Entra en login correcto";
             //Login correcto.
             return $consulta;
         }
         else
         {
-            echo "Entra en login incorrecto";
             //Error al loguear
             return $consulta;
         }
