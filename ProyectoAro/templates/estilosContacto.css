@@ -17,6 +17,8 @@ body{
 }
 .ladocabecera{
     float: left;
+    font-size: 18px;
+    font-family:cursive; 
 }
 .ladocabecera p{
     font-size: 18px;
@@ -25,6 +27,11 @@ body{
 .ladocabecera h1{
     text-align: left;
     font-family:cursive; 
+}
+.telefono{
+    margin-top: 80px;
+    margin-bottom: 120px;
+    
 }
 .nav{
     font-size: 17px;    
