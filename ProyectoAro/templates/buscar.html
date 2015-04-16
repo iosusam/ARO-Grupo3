@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Buscar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="templates/estilosBuscar.css" />
+        <script
+            src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false">
+        </script>
+        <script>
+            function initialize(){
+                var myLatLng = new google.maps.LatLng(42.815766, -1.646073);
+                var mapOptions = {
+                    zoom: 13,
+                    center: myLatLng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById('map-canvas'),
+                mapOptions);
+                var infowindow = new google.maps.InfoWindow({  
+                    content: ''
+                });
+                var img = new google.maps.MarkerImage("imagenes/cabecera.png");
+                var marcadores = [{  
+                    position: {
+                      lat: 42.832586,
+                      lng: -1.586164
+                    },
+                    contenido: "<div id=\"content\"><h2>Asador Zubiondo</h2><div id=\"bodyContent\"><p>Pagina web: <a href=\"http://www.asadorzubiondo.com\" target=\"_blank\">Asador Zubiondo</a></p></div></div>"
+                  },{  
+                    position: {
+                      lat: 42.809551,
+                      lng: -1.657754
+                    },
+                    contenido: "<div id=\"content\"><h3>El Fig&oacute;n</h3><div id=\"bodyContent\"><p>Pagina web: <a href=\"http://elfigondepioxii.com\" target=\"_blank\">El Fig&oacute;n</a></p></div></div>"
+                  },{  
+                    position: {
+                      lat: 42.821861,
+                      lng: -1.694258
+                    },
+                    contenido: "<div id=\"content\"><h3>Restaurante Hotel And&iacute;a</h3><div id=\"bodyContent\"><p>Pagina web: <a href=\"http://www.hotelandia.com/restaurante/\" target=\"_blank\">Restaurante Hotel And&iacute;a</a></p></div></div>"
+                  },{
+                    position: {
+                      lat: 42.8165178,
+                      lng: -1.644065
+                    },
+                    contenido: "<div id=\"content\"><h3>Casa Otano Restaurante</h3><div id=\"bodyContent\"><p>Pagina web: <a href=\"http://www.casaotano.com\" target=\"_blank\">Casa Otano Restaurante</a></p></div></div>"
+                }];
+                for (var i = 0, j = marcadores.length; i < j; i++) {  
+                    var contenido = marcadores[i].contenido;
+                    var marker = new google.maps.Marker({
+                      position: new google.maps.LatLng(marcadores[i].position.lat, marcadores[i].position.lng),
+                      map: map,
+                      icon: img
+                    });
+                    (function(marker, contenido) {
+                      google.maps.event.addListener(marker, 'click', function() {
+                        infowindow.setContent(contenido);
+                        infowindow.open(map, marker);
+                      });
+                    })(marker, contenido);
+                }
+                var map = new GMap2(document.getElementById("map-canvas"));	
+		map.setCenter(new GLatLng(42.815766, -1.646073),5);
+                
+                var madrid = new GLatLng(42.8165178, -1.644065);
+		var barcelona = new GLatLng(42.8165178, -1.694258);
+		
+		var polyline = new GPolyline([madrid, barcelona], "#0000dd", 6, 0.4);
+		map.addOverlay(polyline);
+
+            }            
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default margenCabecera" role="navigation">
+            <!-- El logotipo y el icono que despliega el menú se agrupan
+                 para mostrarlos mejor en los dispositivos móviles -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse"
+                      data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Desplegar navegación</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index.php">Park-Eat</a>
+            </div>
+
+            <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+                 otro elemento que se pueda ocultar al minimizar la barra -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="templates/contacto.html">Contacto</a></li>
+                <li><a href="templates/acercade.html">¿Quienes somos?</a></li>
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.php?accion=login&id=1">Log In</a></li>
+                <li><a href="index.php?accion=registro&id=1">Regístrate</a></li>
+              </ul>
+            </div>
+        </nav>
+        <h1 class="center-block">
+            Encuentra tu restaurante
+        </h1>
+        <br><br>
+        <h4 class="center-text">Encuentra tu restuarante junto con el parking más cercano</h4>
+        <br>
+        
+        <div id="map-canvas" class="center-block"></div>
+        <br><br><br>
+        <iframe src="https://www.google.com/maps/d/embed?mid=z_w054y36Shk.k5OBXTJbWlDE" width="640" height="480"></iframe>
+        
+        <footer class="footer navbar-bottom" >
+            <div class="container">
+                <p class="text-muted margen text-center"><span>© Park-Eat 2015</span></p>
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </body>
+</html>

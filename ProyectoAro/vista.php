@@ -1,23 +1,28 @@
 <?php
-    
+    //mostrar pagina principal
     function vmostrarindexprincipal()
     {
         echo file_get_contents("templates/index.html");
     }
-    
+    //mostrar pagina registro
     function vmostraregistro()
     {
         echo file_get_contents("templates/registro.html");
     }
-    
+    //mostrar pagina de contacto
     function vmostracontacto()
     {
         echo file_get_contents("templates/contacto.html");
     }
-    
+    //mostrar pagina acerca de la empresa
     function vmostraacercade()
     {
         echo file_get_contents("templates/acercade.html");
+    }
+    //mostrar pagina para buscar por resturante
+    function vmostrarbuscarporresturante()
+    {
+        echo file_get_contents("templates/buscar_por_restaurante.html");
     }
     //Funcion que valida el registro
     function vvalidarregistro($valor)
