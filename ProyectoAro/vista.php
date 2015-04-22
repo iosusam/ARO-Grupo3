@@ -137,7 +137,11 @@
     
     function vmostrarindexlogueado()
     {
-        echo file_get_contents("templates/index_logueado.html");
+        $cadena = file_get_contents("templates/index_logueado.html");
+        
+        $cadena = str_replace("##nombre##", $_SESSION["usuario"], $cadena);
+        
+        echo $cadena;
     }
     
     function vmostrarlistadocliente($datosusuario)
