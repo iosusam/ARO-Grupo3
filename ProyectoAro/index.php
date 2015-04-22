@@ -147,6 +147,9 @@
             case '1':
 		vmostrarbuscarporresturante();
 		break;
+            case '2':
+		vobtenercoordenadas(mobtenercoordenadas());
+		break;
         }
     }
     

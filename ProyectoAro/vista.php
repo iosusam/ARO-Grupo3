@@ -155,4 +155,31 @@
 		
     }
     
+    function vobtenercoordenadas($restaurantes)
+    {
+        if ($restaurantes) {
+
+            $cadena = "[";
+            
+            $i = 0;
+
+            while ($datosrestaurantes = mysql_fetch_array($restaurantes))
+            {
+                if ($i == 0)
+                {
+                    $cadena .= "{position: {lat: 42.812152,lng: -1.649228},contenido: \"Soy el primero\"}";
+                    $i = 1;
+                }
+                else
+                {
+                    $cadena .= ",{position: {lat: 42.832586,lng: -1.586164},contenido: \"Soy el segundo\"}";
+                }
+            }
+            
+            $cadena .= "];";
+
+            echo $cadena;
+        }
+    }
+    
 ?>

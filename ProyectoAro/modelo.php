@@ -89,6 +89,7 @@
             return $consulta;
         }
     }
+    
     function mlistadocliente()
     {
         $correo = limpiarCadena($_SESSION["correo"]);
@@ -99,6 +100,13 @@
 	$consulta = mysql_query("select * from Usuario where Correo like '$correo' ");
 	$resultado = mysql_fetch_array($consulta);
 	return $resultado;
+    }
+    
+    function mobtenercoordenadas()
+    {
+        conectar();
+        
+        return mysql_query("select * from Restaurante");
     }
     
 
