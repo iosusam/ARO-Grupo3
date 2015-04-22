@@ -56,7 +56,7 @@ and open the template in the editor.
       </nav>
         <div class="page-header text-center cabecera margenCabecera"> 
             <!--<img src="imagenes/Log.png" class="img-responsive img-rounded" alt="Logo Park-Eat">-->
-            Baja y Modificación
+            Modificación
         </div>    
 
         <div class="row">
@@ -67,20 +67,33 @@ and open the template in the editor.
                     </div>
                     <div class="panel-body text-justify alturaPanel">
                                 
-                        <label class="label label-default" for="Usuario">Usuario:</label>##Usuario##
-                                   
-                        <br/><br/>
+                        <form method="post" action="index.php?accion=perfil&id=3">
 
-                        <label class="label label-default" for="Email">Email:</label>##Email##
-                                   
-                        <br/><br/>
+                        <br />
+
+                        <label for="Usuario">Usuario:</label> &nbsp; &nbsp;
+                        <input type="text"  name="Usuario" id="Usuario" value="##Usuario##"/>
+
+                        <br /><br />
+
+                        <label for="Correo">Correo:</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="text"  name="Correo" id="Correo" value="##Correo##"/>
+
+                        <br /><br />
                         
-                        <label class="label label-default" for="Contraseña">Contraseña:</label>##Contraseña##
-                                   
-                        <br/><br/>
-                                    
-                        <button type="button" class="btn btn-info left-block" onclick="window.location.href='index.php?accion=perfil&id=4'">Darse de baja</button>
-                        <button type="button" class="btn btn-info rigth-block" onclick="window.location.href='index.php?accion=perfil&id=2'">Modificar Datos</button>
+                        <label for="Contraseña">Contraseña:</label> &nbsp;
+                        <input type="Contraseña"  name="Contraseña" id="Contraseña" value="##Contraseña##"/>
+
+                        <br /><br />
+                        
+                        <input type="hidden" name="accion" value="perfil">
+                        <input type="hidden" name="id" value="3">
+                        <input type="submit" value="Enviar">
+                        <input type="reset" value ="Restablecer">
+                        
+                        </form>
+                        
+                        <button type="button" class="btn btn-info left-block" onclick="window.location.href='index.php?accion=perfil&id=1'">Volver</button>
                     </div>
                 </div>
            </div>
@@ -96,3 +109,4 @@ and open the template in the editor.
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     </body>
 </html>
+

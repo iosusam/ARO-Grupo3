@@ -147,13 +147,27 @@
     function vmostrarlistadocliente($datosusuario)
     {
 	$cadena = file_get_contents("templates/bajaymodificacionusuario.html");
+        $cadena = str_replace("##nombre##", $_SESSION["usuario"], $cadena);
 	$cadena = str_replace("##Usuario##", $datosusuario[1], $cadena);
 	$cadena = str_replace("##Email##", $datosusuario[2], $cadena);
+        $cadena = str_replace("##Contraseña##", $datosusuario[3], $cadena);
 		
-	echo $cadena;
-		
-		
+	echo $cadena;	
     }
+    
+     function vmostrarmodificarcliente($datosusuario)
+     {
+        conectar();
+        $fich = fopen("modificacliente.html", "r");
+	$cadena = fread($fich, filesize("modificacliente.html"));
+	fclose($fich);
+        $cadena = str_replace("##nombre##", $_SESSION["usuario"], $cadena);
+	$cadena = str_replace("##Usuario##", $datosusuario[1], $cadena);
+	$cadena = str_replace("##Email##", $datosusuario[2], $cadena);
+        $cadena = str_replace("##Contraseña##", $datosusuario[3], $cadena);
+		
+	echo $cadena; 
+     }
     
     function vobtenercoordenadas($restaurantes)
     {
