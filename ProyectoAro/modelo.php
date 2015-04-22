@@ -102,6 +102,17 @@
 	return $resultado;
     }
     
+    function mvalidarbajacliente()
+    {
+        $correo = limpiarCadena($_SESSION["correo"]);
+        
+	conectar();
+	$consulta = "DELETE FROM Usuario WHERE Correo = '$correo';";
+	$valor = mysql_query($consulta);
+	return $valor;
+		
+    }
+    
     function mobtenercoordenadas()
     {
         conectar();

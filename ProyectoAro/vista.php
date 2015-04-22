@@ -168,6 +168,48 @@
 		
 	echo $cadena; 
      }
+     
+     function vmostrarbajacliente($datosusuario)
+     {
+        conectar();
+	$cadena = file_get_contents("templates/bajacliente.html");
+	$cadena = str_replace("##nombre##", $_SESSION["usuario"], $cadena);
+	$cadena = str_replace("##Usuario##", $datosusuario[1], $cadena);
+	$cadena = str_replace("##Email##", $datosusuario[2], $cadena);
+        $cadena = str_replace("##Contraseña##", $datosusuario[3], $cadena);
+		
+	echo $cadena;
+
+     }
+     
+     function vvalidarbajacliente($resultado)
+     {
+         if($resultado==1){
+             
+            $cadena = file_get_contents("templates/validarformulario.html");
+
+            $cadena = str_replace("##titulopagina##", "Baja", $cadena);
+            $cadena = str_replace("##titulo##", "¡ENHORABUENA!", $cadena);
+            $cadena = str_replace("##cuerpo##", "Se ha dado de Baja correctamente.", $cadena);
+            $cadena = str_replace("##boton##", "success", $cadena);
+            $cadena = str_replace("##enlace##", "index.php", $cadena);
+
+            echo $cadena;
+            
+            session_destroy();
+            
+	}else{
+            $cadena = file_get_contents("templates/validarformulario.html");
+
+            $cadena = str_replace("##titulopagina##", "Baja", $cadena);
+            $cadena = str_replace("##titulo##", "¡AVISO!", $cadena);
+            $cadena = str_replace("##cuerpo##", "Se ha dado de Baja incorrectamente.Vuelva a intentarlo mas tarde", $cadena);
+            $cadena = str_replace("##boton##", "danger", $cadena);
+            $cadena = str_replace("##enlace##", "index.php?accion=menu&id=1", $cadena);
+            
+            echo $cadena;
+	}
+     }
     
     function vobtenercoordenadas($restaurantes)
     {

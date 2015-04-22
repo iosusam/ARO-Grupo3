@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Park-Eat</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        
+        <link rel="stylesheet" type="text/css" href="templates/estilosIndex.css" />
+    </head>
+    <body>
+      <nav class="navbar navbar-default margenCabecera" role="navigation">
+        <!-- El logotipo y el icono que despliega el menú se agrupan
+             para mostrarlos mejor en los dispositivos móviles -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse"
+                  data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Desplegar navegación</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.php">Park-Eat</a>
+        </div>
+
+        <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+             otro elemento que se pueda ocultar al minimizar la barra -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.php">Inicio</a></li>
+            <li><a href="index.php?accion=contacto&id=1">Contacto</a></li>
+            <li><a href="index.php?accion=acercade&id=1">Acerca de</a></li>
+          </ul>
+            
+          <ul class="nav navbar-nav navbar-right botondesconectar">
+              <div class="btn-group">
+                <button type="button" id="botondesconectar" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  ##nombre## <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Perfil</a></li>
+                  <li class="divider"></li>
+                  <li><a href="index.php?accion=logout&id=1">Desconectar</a></li>
+                </ul>
+               </div>
+          </ul>
+        </div>
+      </nav>
+        <div class="page-header text-center cabecera margenCabecera"> 
+            <!--<img src="imagenes/Log.png" class="img-responsive img-rounded" alt="Logo Park-Eat">-->
+            Baja Usuario
+        </div>    
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">¿Esta seguro darse de baja?</h3>
+                    </div>
+                    <div class="panel-body text-justify alturaPanel">
+                                
+                        <label class="label label-default" for="Usuario">Usuario:</label>##Usuario##
+                                   
+                        <br/><br/>
+
+                        <label class="label label-default" for="Email">Email:</label>##Email##
+                                   
+                        <br/><br/>
+                        
+                        <label class="label label-default" for="Contraseña">Contraseña:</label>##Contraseña##
+                                   
+                        <br/><br/>
+                        
+                        <button type="button" class="btn btn-info left-block" onclick="window.location.href='index.php?accion=perfil&id=5'">SI</button>
+                        <button type="button" class="btn btn-info rigth-block" onclick="window.location.href='index.php?accion=perfil&id=1'">VOLVER</button>
+                    </div>
+                </div>
+           </div>
+        </div>
+        <footer class="footer navbar-bottom" >
+                <div class="container">
+                    <p class="text-muted margen text-center"><span>© Park-Eat 2015</span></p>
+                </div>
+            </footer>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </body>
+</html>
