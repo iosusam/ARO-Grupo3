@@ -158,16 +158,46 @@
      function vmostrarmodificarcliente($datosusuario)
      {
         conectar();
-        $fich = fopen("modificacliente.html", "r");
-	$cadena = fread($fich, filesize("modificacliente.html"));
+        $fich = fopen("templates/modificacliente.html", "r");
+	$cadena = fread($fich, filesize("templates/modificacliente.html"));
 	fclose($fich);
         $cadena = str_replace("##nombre##", $_SESSION["usuario"], $cadena);
 	$cadena = str_replace("##Usuario##", $datosusuario[1], $cadena);
-	$cadena = str_replace("##Email##", $datosusuario[2], $cadena);
+	$cadena = str_replace("##Correo##", $datosusuario[2], $cadena);
         $cadena = str_replace("##Contraseña##", $datosusuario[3], $cadena);
 		
 	echo $cadena; 
      }
+     
+     function vvalidarmodificarcliente($resultado)
+     {
+	if($resultado==1){
+            
+            $cadena = file_get_contents("templates/validarformulario.html");
+
+            $cadena = str_replace("##titulopagina##", "Modificación", $cadena);
+            $cadena = str_replace("##titulo##", "¡ENHORABUENA!", $cadena);
+            $cadena = str_replace("##cuerpo##", "Se han modificado los datos correctamente.", $cadena);
+            $cadena = str_replace("##boton##", "success", $cadena);
+            $cadena = str_replace("##enlace##", "index.php?accion=menu&id=1", $cadena);
+
+            echo $cadena;	
+            
+        }else{
+            
+            $cadena = file_get_contents("templates/validarformulario.html");
+
+            $cadena = str_replace("##titulopagina##", "Modificación", $cadena);
+            $cadena = str_replace("##titulo##", "¡AVISO!", $cadena);
+            $cadena = str_replace("##cuerpo##", "No se han podido modificar los datos.Vuelva a intentarlo mas tarde", $cadena);
+            $cadena = str_replace("##boton##", "danger", $cadena);
+            $cadena = str_replace("##enlace##", "index.php?accion=menu&id=1", $cadena);
+            
+            echo $cadena;	
+            
+        }
+    }
+
      
      function vmostrarbajacliente($datosusuario)
      {

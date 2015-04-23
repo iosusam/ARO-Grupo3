@@ -102,6 +102,27 @@
 	return $resultado;
     }
     
+    function mvalidarmodificarcliente()
+    {
+        $nombre = limpiarCadena($_POST["Nombre"]);
+        $correo = limpiarCadena($_POST["Correo"]);
+        $pass = md5(limpiarCadena($_POST["Password"]));
+        
+		if( (isset($_POST["Nombre"])) && (isset($_POST["Correo"])) && (isset($_POST["Contrasena"])) ){
+			conectar();
+			$consulta = "UPDATE Usuario SET `Nombre` = '$nombre' ,`Correo` = '$correo',`Contrasena` = '$pass';";
+			$valor1 = mysql_query($consulta);
+			$consulta = mysql_query("select * from Usuario where Correo like '$correo' ");
+                        $resultado = mysql_fetch_array($consulta);
+			$_SESSION["usuario"] = $resultado;
+			$_SESSION["correo"] = $_POST["Correo"];
+			$_SESSION["contrasena"] = $_POST["Password"];
+			return $valor1;
+		}else{
+			return -1;
+		}
+    }
+    
     function mvalidarbajacliente()
     {
         $correo = limpiarCadena($_SESSION["correo"]);
