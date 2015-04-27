@@ -133,6 +133,8 @@
     {
         conectar();
         
+        mysql_query("SET NAMES 'utf8'");
+        
         return mysql_query("select * from Restaurante");
     }
     

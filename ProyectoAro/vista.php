@@ -244,27 +244,32 @@
     function vobtenercoordenadas($restaurantes)
     {
         if ($restaurantes) {
-
-            $cadena = "[";
             
             $i = 0;
 
             while ($datosrestaurantes = mysql_fetch_array($restaurantes))
             {
-                if ($i == 0)
+                if ($datosrestaurantes["Web"] != "")
                 {
-                    $cadena .= "{position: {lat: 42.812152,lng: -1.649228},contenido: \"Soy el primero\"}";
-                    $i = 1;
+                    $array[$i] = array(
+                        "X" => $datosrestaurantes["Coordenada_X"],
+                        "Y" => $datosrestaurantes["Coordenada_Y"],
+                        "Contenido" => "<div id=\"NombreBar\"><b>" . $datosrestaurantes["Nombre"] . "</b></div><div>" . $datosrestaurantes["Calle"] . "</br>" . $datosrestaurantes["CodigoPostal"] . " Pamplona</br>Navarra</div><div>Sitio web de <a href='" . $datosrestaurantes["Web"] . "' TARGET='_blank'>" . $datosrestaurantes["Nombre"] . "</a></div>",
+                    );
                 }
                 else
                 {
-                    $cadena .= ",{position: {lat: 42.832586,lng: -1.586164},contenido: \"Soy el segundo\"}";
+                    $array[$i] = array(
+                        "X" => $datosrestaurantes["Coordenada_X"],
+                        "Y" => $datosrestaurantes["Coordenada_Y"],
+                        "Contenido" => "<div id=\"NombreBar\"><b>" . $datosrestaurantes["Nombre"] . "</b></div><div>" . $datosrestaurantes["Calle"] . "</br>" . $datosrestaurantes["CodigoPostal"] . " Pamplona</br>Navarra</div><div>" . $datosrestaurantes["Nombre"] . " no posee sitio web</div>",
+                    );
                 }
+                
+                $i++;
             }
-            
-            $cadena .= "];";
 
-            echo $cadena;
+            echo json_encode($array);
         }
     }
     
