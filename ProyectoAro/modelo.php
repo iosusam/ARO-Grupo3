@@ -103,19 +103,36 @@
     }
     
     function mvalidarmodificarcliente()
-    {        
-	if( (isset($_POST["Nombre"])) && (isset($_POST["Correo"])) && (isset($_POST["Password"])) ){
-            conectar();
-            $consulta = "UPDATE Usuario SET `Nombre` = '". $_POST["Nombre"]  . "' ,`Correo` = '". $_POST["Correo"]  . "';";
-            $valor1 = mysql_query($consulta);
-            $consulta = mysql_query("select * from Usuario where Correo like '". $_POST["Correo"]  . "' ");
-            $resultado = mysql_fetch_array($consulta);
-            $_SESSION["usuario"] = $resultado;
-            $_SESSION["correo"] = $_POST["Correo"];
-            return $valor1;
-	}else{
+    {
+        $nombre = limpiarCadena($_POST["Usuario"]);
+        $correo = limpiarCadena($_POST["Correo"]);
+        
+        echo limpiarCadena($_POST["Nombre"]);
+        
+        conectar();
+        
+        $datosusuario = mysql_query("select * from Usuario where Correo like '". $_SESSION["correo"]  . "'");
+        
+        $usuario = mysql_fetch_array($datosusuario);
+        
+        $consulta = mysql_query("select * from Usuario where Correo like '$correo' and Id <> ". $usuario["Id"]  . "");
+        
+        if (mysql_num_rows($consulta) == 1)
+        {
+            //Correo Registrado.
             return -1;
-	}
+        }
+        else
+        {
+            //Correo no registrado,se modifica
+            $consulta = mysql_query("UPDATE Usuario SET `Nombre` = '$nombre' ,`Correo` = '$correo' where Id= ". $usuario["Id"]  . " ");
+        
+            $_SESSION["usuario"] = $nombre;
+            $_SESSION["correo"] = $correo;
+            return $consulta;
+        }
+        
+        
     }
     
     function mvalidarbajacliente()
