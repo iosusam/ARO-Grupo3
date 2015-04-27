@@ -9,7 +9,6 @@ and open the template in the editor.
 */
 
 #map-canvas {
-    width: 1000px;
     margin-bottom: 30px;
     margin-top: 30px;
     height: 500px; 
@@ -17,5 +16,9 @@ and open the template in the editor.
 
 h1, h4 {
     text-align: center;
+}
+
+#NombreBar{
+    font-size: 22px;
 }
 
