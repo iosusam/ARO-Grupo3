@@ -284,7 +284,7 @@
                 $array[$i] = array(
                         "X" => $datosparkings["Coordenada_X"],
                         "Y" => $datosparkings["Coordenada_Y"],
-                        "Contenido" => "<div id=\"NombreBar\"><b>" . $datosparkings["Nombre"] . "</b></div><div>" . $datosparkings["Localizacion"] . "</br>Pamplona</br>Navarra</div><div>Numero de plazas: " . $datosparkings["Numero_plazas"] . "</div>",
+                        "Contenido" => "<div id=\"NombreBar\"><b>" . $datosparkings["Nombre"] . "</b></div><div>" . $datosparkings["Localizacion"] . "</br>Pamplona (Navarra)</div><div>Numero de plazas: " . $datosparkings["Numero_plazas"] . "</div>",
                     );
                 
                 $i++;
