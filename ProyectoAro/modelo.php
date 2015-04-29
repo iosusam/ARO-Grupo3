@@ -106,9 +106,7 @@
     {
         $nombre = limpiarCadena($_POST["Usuario"]);
         $correo = limpiarCadena($_POST["Correo"]);
-        
-        echo limpiarCadena($_POST["Nombre"]);
-        
+                
         conectar();
         
         $datosusuario = mysql_query("select * from Usuario where Correo like '". $_SESSION["correo"]  . "'");
