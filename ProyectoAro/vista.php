@@ -241,7 +241,7 @@
 	}
      }
     
-    function vobtenercoordenadas($restaurantes)
+    function vobtenercoordenadasrestaurantes($restaurantes)
     {
         if ($restaurantes) {
             
@@ -265,6 +265,27 @@
                         "Contenido" => "<div id=\"NombreBar\"><b>" . $datosrestaurantes["Nombre"] . "</b></div><div>" . $datosrestaurantes["Calle"] . "</br>" . $datosrestaurantes["CodigoPostal"] . " Pamplona</br>Navarra</div><div>" . $datosrestaurantes["Nombre"] . " no posee sitio web</div>",
                     );
                 }
+                
+                $i++;
+            }
+
+            echo json_encode($array);
+        }
+    }
+    
+    function vobtenercoordenadasaparcamientosgratuitos($parkings)
+    {
+        if ($parkings) { 
+            
+            $i = 0;
+
+            while ($datosparkings = mysql_fetch_array($parkings))
+            {
+                $array[$i] = array(
+                        "X" => $datosparkings["Coordenada_X"],
+                        "Y" => $datosparkings["Coordenada_Y"],
+                        "Contenido" => "<div id=\"NombreBar\"><b>" . $datosparkings["Nombre"] . "</b></div><div>" . $datosparkings["Localizacion"] . "</br>Pamplona</br>Navarra</div><div>Numero de plazas: " . $datosparkings["Numero_plazas"] . "</div>",
+                    );
                 
                 $i++;
             }

@@ -129,13 +129,22 @@
 		
     }
     
-    function mobtenercoordenadas()
+    function mobtenercoordenadasrestaurantes()
     {
         conectar();
         
         mysql_query("SET NAMES 'utf8'");
         
         return mysql_query("select * from Restaurante");
+    }
+    
+    function mobtenercoordenadasaparcamientosgratuitos()
+    {
+        conectar();
+        
+        mysql_query("SET NAMES 'utf8'");
+        
+        return mysql_query("select * from parking");
     }
     
 

@@ -148,7 +148,10 @@
 		vmostrarbuscarporresturante();
 		break;
             case '2':
-		vobtenercoordenadas(mobtenercoordenadas());
+		vobtenercoordenadasrestaurantes(mobtenercoordenadasrestaurantes());
+		break;
+            case '3':
+		vobtenercoordenadasaparcamientosgratuitos(mobtenercoordenadasaparcamientosgratuitos());
 		break;
         }
     }
