@@ -151,8 +151,11 @@
 		vobtenercoordenadasrestaurantes(mobtenercoordenadasrestaurantes());
 		break;
             case '3':
-		vobtenercoordenadasaparcamientosgratuitos(mobtenercoordenadasaparcamientosgratuitos());
+		vobtenercoordenadasaparcamientos(mobtenercoordenadasaparcamientos(1));
 		break;
+            case '4':
+                vobtenercoordenadasaparcamientos(mobtenercoordenadasaparcamientos(0));
+                break;
         }
     }
     

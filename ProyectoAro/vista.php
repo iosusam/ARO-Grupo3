@@ -19,7 +19,7 @@
     {
         echo file_get_contents("templates/acercade.html");
     }
-    //mostrar pagina para buscar por resturante
+    //mostrar pagina para buscar por resturante y aparcamientos
     function vmostrarbuscarporresturante()
     {
         echo file_get_contents("templates/buscar.html");
@@ -273,7 +273,7 @@
         }
     }
     
-    function vobtenercoordenadasaparcamientosgratuitos($parkings)
+    function vobtenercoordenadasaparcamientos($parkings)
     {
         if ($parkings) { 
             
