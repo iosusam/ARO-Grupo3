@@ -98,13 +98,22 @@ and open the template in the editor.
             function obtenercoordenadasaparcamientosgratuitos()
             {
                 conexion();
-                con.onreadystatechange = respuestacoordenadasaparcamientosgratuitos;
+                con.onreadystatechange = respuestacoordenadasaparcamientos;
                 var dir = "index.php?accion=buscar&id=3&variable=" + Math.random();
                 con.open("GET", dir, true);
                 con.send(null);
             }
             
-            function respuestacoordenadasaparcamientosgratuitos()
+            function obtenercoordenadasaparcamientosdepago()
+            {
+                conexion();
+                con.onreadystatechange = respuestacoordenadasaparcamientos;
+                var dir = "index.php?accion=buscar&id=4&variable=" + Math.random();
+                con.open("GET", dir, true);
+                con.send(null);
+            }
+            
+            function respuestacoordenadasaparcamientos()
             {
                 if (con.readyState == 4)
                 {
@@ -190,7 +199,8 @@ and open the template in the editor.
             <div id="map-canvas" class="center-block"></div>
         
             <button class="btn btn-warning" onclick="window.location.href='javascript:obtenercoordenadasrestaurantes()'">Restaurantes</button>
-            <button class="btn btn-warning" onclick="window.location.href='javascript:obtenercoordenadasaparcamientosgratuitos()'">Aparcamientos gratuitos</button>
+            <button class="btn btn-primary" onclick="window.location.href='javascript:obtenercoordenadasaparcamientosgratuitos()'">Aparcamientos gratuitos</button>
+            <button class="btn btn-warning" onclick="window.location.href='javascript:obtenercoordenadasaparcamientosdepago()'">Aparcamientos de pago</button>
         </div>
         
         <footer class="footer navbar-bottom" >
