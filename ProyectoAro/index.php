@@ -145,7 +145,7 @@
     elseif ($accion == "buscar") {
         switch ($id) {
             case '1':
-		vmostrarbuscarporresturante();
+		vmostrarbuscar();
 		break;
             case '2':
 		vobtenercoordenadasrestaurantes(mobtenercoordenadasrestaurantes());
@@ -155,6 +155,15 @@
 		break;
             case '4':
                 vobtenercoordenadasaparcamientos(mobtenercoordenadasaparcamientos(0));
+                break;
+            case '5':
+                vobtenercoordenadaszona(mobtenercoordenadaszonaazul());
+                break;
+            case '6':
+                vobtenercoordenadaszona(mobtenercoordenadaszonaroja());
+                break;
+            case '7':
+                vobtenercoordenadaszona(mobtenercoordenadaszonaverde());
                 break;
         }
     }

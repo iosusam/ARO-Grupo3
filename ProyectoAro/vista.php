@@ -20,7 +20,7 @@
         echo file_get_contents("templates/acercade.html");
     }
     //mostrar pagina para buscar por resturante y aparcamientos
-    function vmostrarbuscarporresturante()
+    function vmostrarbuscar()
     {
         echo file_get_contents("templates/buscar.html");
     }
@@ -286,6 +286,28 @@
                         "Y" => $datosparkings["Coordenada_Y"],
                         "Contenido" => "<div id=\"NombreBar\"><b>" . $datosparkings["Nombre"] . "</b></div><div>" . $datosparkings["Localizacion"] . "</br>Pamplona (Navarra)</div><div>Numero de plazas: " . $datosparkings["Numero_plazas"] . "</div>",
                     );
+                
+                $i++;
+            }
+
+            echo json_encode($array);
+        }
+    }
+    
+    function vobtenercoordenadaszona($zona)
+    {
+        if ($zona) {
+            
+            $i = 0;
+
+            while ($datoszona = mysql_fetch_array($zona))
+            {
+
+                $array[$i] = array(
+                    "X" => $datoszona["Coordenada_X"],
+                    "Y" => $datoszona["Coordenada_Y"],
+                    "Nombre" => $datoszona["Nombre"]
+                );
                 
                 $i++;
             }

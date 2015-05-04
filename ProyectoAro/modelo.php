@@ -162,5 +162,31 @@
         return mysql_query("select * from parking where Gratuito = '$valor'");
     }
     
+    function mobtenercoordenadaszonaazul()
+    {
+        conectar();
+        
+        mysql_query("SET NAMES 'utf8'");
+        
+        return mysql_query("select * from zonaazul");
+    }
+    
+    function mobtenercoordenadaszonaroja()
+    {
+        conectar();
+        
+        mysql_query("SET NAMES 'utf8'");
+        
+        return mysql_query("select * from zonaroja");
+    }
+    
+    function mobtenercoordenadaszonaverde()
+    {
+        conectar();
+        
+        mysql_query("SET NAMES 'utf8'");
+        
+        return mysql_query("select * from zonaverde");
+    }
 
 ?>
