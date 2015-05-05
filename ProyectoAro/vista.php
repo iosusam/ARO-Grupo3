@@ -254,7 +254,7 @@
                     $array[$i] = array(
                         "X" => $datosrestaurantes["Coordenada_X"],
                         "Y" => $datosrestaurantes["Coordenada_Y"],
-                        "Contenido" => "<div id=\"NombreBar\"><b>" . $datosrestaurantes["Nombre"] . "</b></div><div>" . $datosrestaurantes["Calle"] . "</br>" . $datosrestaurantes["CodigoPostal"] . " Pamplona</br>Navarra</div><div>Sitio web de <a href='" . $datosrestaurantes["Web"] . "' TARGET='_blank'>" . $datosrestaurantes["Nombre"] . "</a></div>",
+                        "Contenido" => "<div id=\"NombreBar\"><b>" . $datosrestaurantes["Nombre"] . "</b></div><div>" . $datosrestaurantes["Calle"] . "</br>" . $datosrestaurantes["CodigoPostal"] . " Pamplona (Navarra)</div><div>Sitio web de <a href='" . $datosrestaurantes["Web"] . "' TARGET='_blank'>" . $datosrestaurantes["Nombre"] . "</a></div>",
                     );
                 }
                 else
@@ -262,7 +262,7 @@
                     $array[$i] = array(
                         "X" => $datosrestaurantes["Coordenada_X"],
                         "Y" => $datosrestaurantes["Coordenada_Y"],
-                        "Contenido" => "<div id=\"NombreBar\"><b>" . $datosrestaurantes["Nombre"] . "</b></div><div>" . $datosrestaurantes["Calle"] . "</br>" . $datosrestaurantes["CodigoPostal"] . " Pamplona</br>Navarra</div><div>" . $datosrestaurantes["Nombre"] . " no posee sitio web</div>",
+                        "Contenido" => "<div id=\"NombreBar\"><b>" . $datosrestaurantes["Nombre"] . "</b></div><div>" . $datosrestaurantes["Calle"] . "</br>" . $datosrestaurantes["CodigoPostal"] . " Pamplona (Navarra)</div><div>" . $datosrestaurantes["Nombre"] . " no posee sitio web</div>",
                     );
                 }
                 
@@ -284,7 +284,7 @@
                 $array[$i] = array(
                         "X" => $datosparkings["Coordenada_X"],
                         "Y" => $datosparkings["Coordenada_Y"],
-                        "Contenido" => "<div id=\"NombreBar\"><b>" . $datosparkings["Nombre"] . "</b></div><div>" . $datosparkings["Localizacion"] . "</br>Pamplona (Navarra)</div><div>Numero de plazas: " . $datosparkings["Numero_plazas"] . "</div>",
+                        "Contenido" => "<div id=\"NombreBar\"><b>" . $datosparkings["Nombre"] . "</b></div><div>" . $datosparkings["Calle"] . "</br>" . $datosparkings["CodigoPostal"] . " Pamplona (Navarra)</div><div>Numero de plazas: " . $datosparkings["Numero_plazas"] . "</div>",
                     );
                 
                 $i++;
