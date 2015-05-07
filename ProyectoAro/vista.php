@@ -316,4 +316,23 @@
         }
     }
     
+    function vbuscar_por_restaurante($resultado)
+    {
+        if ($resultado) {
+            $cadena = file_get_contents("templates/buscar_por_restaurante.html");
+            
+            $trozos = explode("##linea##",$cadena);
+            $cuerpo = "";
+
+            for ($i = 0; $i < count($resultado); $i++)
+            {
+		$aux = $trozos[1];				
+		$aux = str_replace("##Restaurante##", $resultado[$i]["Nombre"], $aux);
+		$cuerpo = $cuerpo . $aux;
+		}		
+			
+		echo $trozos[0] . $cuerpo . $trozos[2];
+        }
+    }
+    
 ?>

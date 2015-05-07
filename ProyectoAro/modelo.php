@@ -76,7 +76,7 @@
 
         conectar();
 
-        $consulta = mysql_query("select * from Usuario where Contrasena like '$pass' and Correo like '$correo'");
+        $consulta = mysql_query("select * from usuario where Contrasena like '$pass' and Correo like '$correo'");
 
         if (mysql_num_rows($consulta) == 1)
         {
@@ -187,6 +187,13 @@
         mysql_query("SET NAMES 'utf8'");
         
         return mysql_query("select * from zonaverde");
+    }
+    
+    function mbuscar_por_restaurante()
+    {
+        conectar();
+        mysql_query("SET NAMES 'utf8'");
+        return mysql_query("select * from restaurante");
     }
 
 ?>

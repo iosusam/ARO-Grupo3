@@ -76,6 +76,14 @@
             }
 	}
         
+        if ($accion == "valoracion") {
+            switch ($id) {
+                case '1':
+                    vbuscar_por_restaurante(mbuscar_por_restaurante);
+                    break;
+            }
+        }
+        
         if ($accion == "logout") {
             switch ($id) {
                 case '1':
@@ -167,5 +175,6 @@
                 break;
         }
     }
+    
     
 ?>

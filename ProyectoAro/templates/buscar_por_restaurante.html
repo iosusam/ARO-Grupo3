@@ -55,12 +55,12 @@ and open the template in the editor.
                     <span class="caret"></span>
                 </button>
                 
-                <ul class="dropdown-menu" role="menu">
-                    ##linea##
-                    <li><a href="#">##Restaurante##</a></li>
-                    ##linea##
-                    <li class="divider"></li>
-                </ul>
+                Elija el restaurante que desee ver su valoracion o escribir un comentario:
+                ##linea##
+                <select class="dropdown-menu" onchange="window.location.href='javascript:obtenervaloracionrestaurante()'">
+                    <option>##Restaurante##</option>
+                </select>
+                ##linea##
                 <br><br><br><br>
                 Deja tu comentario:
                 <textarea class="form-control" rows="5"></textarea>
