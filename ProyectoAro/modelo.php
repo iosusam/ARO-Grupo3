@@ -192,8 +192,12 @@
     function mbuscar_por_restaurante()
     {
         conectar();
+        
         mysql_query("SET NAMES 'utf8'");
-        return mysql_query("select * from restaurante");
+        
+        $resultado = mysql_query("select * from restaurante");
+        
+        return $resultado;
     }
 
 ?>

@@ -14,7 +14,36 @@ and open the template in the editor.
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <link rel="stylesheet" type="text/css" href="templates/buscar_por_restaurante.css" />
+        <script>
+            
+            function conexion()
+            {
+                if (window.ActiveXObject)
+                {
+                    con = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                else
+                {
+                    if (window.XMLHttpRequest)
+                    {
+                            con = new XMLHttpRequest();
+                    }
+                }
+            }
+            
+            function obtenervaloracionesrestaurante()
+            {
+                conexion();
+                con.onreadystatechange = respuestacoordenadasaparcamientos;
+                var dir = "index.php?accion=buscar&id=3&variable=" + Math.random();
+                con.open("GET", dir, true);
+                con.send(null);
+            }
+        
+        
+        </script>   
     </head>
+     
     <body>
         <nav class="navbar navbar-default margenCabecera" role="navigation">
         <!-- El logotipo y el icono que despliega el menú se agrupan
@@ -34,17 +63,24 @@ and open the template in the editor.
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Inicio</a></li>
-                    <li><a href="templates/contacto.html">Contacto</a></li>
-                    <li><a href="templates/acercade.html">¿Quienes somos?</a></li>
+                    <li class="active"><a href="index.php?accion=valoracion&id=1">Valoraciones</a></li>
+                    <li><a href="index.php?accion=contacto&id=1">Contacto</a></li>
                 </ul>
             
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.php?accion=login&id=1">Log In</a></li>
-                    <li><a href="index.php?accion=registro&id=1">Regístrate</a></li>
-                </ul>
+                <div class="btn-group pull-right">
+                    <button type="button" id="botondesconectar" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    ##nombre## <span class="caret"></span>
+                    </button>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="index.php?accion=perfil&id=1">Perfil</a></li>
+                        <li class="divider"></li>
+                        <li><a href="index.php?accion=logout&id=1">Desconectar</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
-        <form class="col-lg-offset-1" id="formularioRegistro" method="Post" action="index.php" >
+        <div>
             <h2 class="center-block">
                 ¿que restaurante desea consultar?
             </h2>
@@ -56,19 +92,17 @@ and open the template in the editor.
                 </button>
                 
                 Elija el restaurante que desee ver su valoracion o escribir un comentario:
-                ##linea##
-                <select class="dropdown-menu" onchange="window.location.href='javascript:obtenervaloracionrestaurante()'">
+                <br><br><br>
+                
+                <select class="dropdown-menu" onchange="obtenervaloracionrestaurante()">
+                    ##linea##
                     <option>##Restaurante##</option>
+                    ##linea##
                 </select>
-                ##linea##
-                <br><br><br><br>
-                Deja tu comentario:
-                <textarea class="form-control" rows="5"></textarea>
+               
+                
             </div>
-            
-            
-
-        </form>
+        </div>
         <footer class="footer navbar-fixed-bottom" >
             <div class="container">
                 <p class="text-muted margen text-center"><span>© Park-Eat 2015</span></p>

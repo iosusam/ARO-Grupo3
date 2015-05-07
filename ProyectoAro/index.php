@@ -79,7 +79,7 @@
         if ($accion == "valoracion") {
             switch ($id) {
                 case '1':
-                    vbuscar_por_restaurante(mbuscar_por_restaurante);
+                    vbuscar_por_restaurante(mbuscar_por_restaurante());
                     break;
             }
         }

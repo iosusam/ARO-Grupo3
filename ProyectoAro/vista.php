@@ -316,23 +316,25 @@
         }
     }
     
-    function vbuscar_por_restaurante($resultado)
+    function vbuscar_por_restaurante($prueba)
     {
-        if ($resultado) {
-            $cadena = file_get_contents("templates/buscar_por_restaurante.html");
+        if ($prueba){
+             $cadena = file_get_contents("templates/buscar_por_restaurante.html");
+        
+            $cadena = str_replace("##nombre##", $_SESSION["usuario"], $cadena);
             
             $trozos = explode("##linea##",$cadena);
             $cuerpo = "";
-
-            for ($i = 0; $i < count($resultado); $i++)
-            {
-		$aux = $trozos[1];				
-		$aux = str_replace("##Restaurante##", $resultado[$i]["Nombre"], $aux);
-		$cuerpo = $cuerpo . $aux;
-		}		
-			
-		echo $trozos[0] . $cuerpo . $trozos[2];
+            while($resultado = mysql_fetch_array($prueba)){
+                    $aux = $trozos[1];				
+                    $aux = str_replace("##Restaurante##", $resultado["Nombre"], $aux);
+                    $cuerpo = $cuerpo . $aux;
+            }
+            echo $trozos[0] . $cuerpo . $trozos[2];
         }
+        
+        
+        
     }
     
 ?>
