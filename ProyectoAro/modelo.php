@@ -200,13 +200,35 @@
         return $resultado;
     }
     
-    function mbuscar_por_restaurante_id($id)
+    function mbuscar_por_restaurante_id_valoracion($id)
+    {
+        conectar();
+        
+        mysql_query("SET NAMES 'utf8'");
+        
+        $resultado = mysql_query("SELECT * FROM `valoracion` WHERE `Id` =  '$id'");
+        
+        return $resultado;
+    }
+    
+    function mbuscar_por_restaurante_id_restaurante($id)
     {
         conectar();
         
         mysql_query("SET NAMES 'utf8'");
         
         $resultado = mysql_query("SELECT * FROM `restaurante` WHERE `Id` =  '$id'");
+        
+        return $resultado;
+    }
+    
+    function mbuscar_por_restaurante_id_usuario($id)
+    {
+        conectar();
+        
+        mysql_query("SET NAMES 'utf8'");
+        
+        $resultado = mysql_query("SELECT * FROM `usuario` WHERE `Id` =  '$id'");
         
         return $resultado;
     }

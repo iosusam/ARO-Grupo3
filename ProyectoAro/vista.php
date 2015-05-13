@@ -335,21 +335,20 @@
         }        
     }
     
-    function vbuscar_por_restaurante_valoracion($resultado)
+    function vbuscar_por_restaurante_valoracion($valoracion,$restaurante,$usuario)
     {   
-        if($resultado)
-        {
-            $prueba = mysql_fetch_array($resultado);
-        
+        if($valoracion && $restaurante && $usuario)
+        {        
             $cadena = file_get_contents("templates/comentarios.html");
         
             $trozos = explode("##linea##",$cadena);
             $cuerpo = "";
-        
-            while($resultado = mysql_fetch_array($prueba)){
+            $usuario = mysql_fetch_array($usuario);
+            $restaurante = mysql_fetch_array($restaurante);
+            while($resultado = mysql_fetch_array($valoracion)){
                 $aux = $trozos[1];				
-                $aux = str_replace("##NombreRestaurante##", $resultado["NombreRestaurante"], $aux);
-                $aux = str_replace("##NombreUsuario##", $resultado["NombreUsuario"], $aux);
+                $aux = str_replace("##NombreRestaurante##", $restaurante["Nombre"], $aux);
+                $aux = str_replace("##NombreUsuario##", $usuario["Nombre"], $aux);
                 $aux = str_replace("##PuntuacionGeneral##", $resultado["PuntuacionGeneral"], $aux);
                 $aux = str_replace("##Comentario##", $resultado["Comentario"], $aux);
                 $aux = str_replace("##TipoVisita##", $resultado["TipoVisita"], $aux);
