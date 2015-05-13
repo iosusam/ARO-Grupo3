@@ -14,7 +14,7 @@ and open the template in the editor.
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         
-        <link rel="stylesheet" type="text/css" href="templates/estilosIndex.css" />
+        <link rel="stylesheet" type="text/css" href="templates/estilosBajaymodificacion.css" />
     </head>
     <body>
       <nav class="navbar navbar-default margenCabecera" role="navigation">
@@ -59,21 +59,27 @@ and open the template in the editor.
             Baja y Modificación
         </div> 
         
-        <div class="page-header">
-            <h1>Datos del Usuario</h1>
-        </div>
-        
+        <h2 align="center">
+            DATOS DEL USUARIO
+        </h2>
         <hr class="col-lg-11">
-        
-        <div class="form-group col-lg-4 bajaymodificacion">
+        <div id="contenido">
             
-            <label type="text" name="Usuario" id="Usuario" class="form-control">##Usuario##</label>
 
-            <label type="text" name="Correo" id="Correo" class="form-control">##Email##</label>
+            <div class="form-group col-lg-4 bajaymodificacion">
 
-            <button type="button" class="btn btn-info left-block" onclick="window.location.href='index.php?accion=perfil&id=4'">Darse de baja</button>
-            <button type="button" class="btn btn-info rigth-block" onclick="window.location.href='index.php?accion=perfil&id=2'">Modificar Datos</button>
+                <label type="text" name="Usuario" id="Usuario" class="form-control">##Usuario##</label>
+                
+                <br/>
 
+                <label type="text" name="Correo" id="Correo" class="form-control">##Email##</label>
+                
+                <br/><br/>
+                
+                <button type="button" class="btn btn-info left-block" onclick="window.location.href='index.php?accion=perfil&id=4'">Darse de baja</button>
+                <button type="button" class="btn btn-info rigth-block" onclick="window.location.href='index.php?accion=perfil&id=2'">Modificar Datos</button>
+
+            </div>
         </div>
         <footer class="footer navbar-fixed-bottom" >
             <div class="container">

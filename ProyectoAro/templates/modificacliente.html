@@ -79,13 +79,14 @@ and open the template in the editor.
         <div class="page-header text-center cabecera margenCabecera"> 
             <!--<img src="imagenes/Log.png" class="img-responsive img-rounded" alt="Logo Park-Eat">-->
             Modificación
-        </div>    
-        <form class="col-lg-offset-1" id="login" method="Post" action="index.php?accion=perfil&id=3" <!--onsubmit="return validarLogin(this);"-->>
+        </div> 
+        <div id="contenido">
+        <form class="col-lg-offset-1" id="login" method="Post" action="index.php?accion=perfil&id=3" <!--onsubmit="return validarLogin(this);"-->
             <h2 class="center-block">
                 ¡Modifica tus datos!
             </h2>
             <br><br>
-            <b class="nuevaCuenta">Introduce los datos de tu cuenta</b>
+            <b class="nuevaCuenta">Modifica los datos de tu cuenta</b>
             <br>
             <hr class="col-lg-11">
             <div class="form-group col-lg-4">								    	
@@ -104,10 +105,12 @@ and open the template in the editor.
                 
                 <br><br>
                 <div class="row text-danger">
-                    Todos los campos marcados con * son obligatorios
+                    Todos los campos marcados con * son obligatorios 
                 </div>
             </div>
         </form>
+        <button type="button" class="btn btn-info rigth-block" onclick="window.location.href='index.php?accion=perfil&id=1'">VOLVER</button>
+        </div>    
         <footer class="footer navbar-fixed-bottom" >
                 <div class="container">
                     <p class="text-muted margen text-center"><span>© Park-Eat 2015</span></p>

@@ -14,7 +14,7 @@ and open the template in the editor.
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         
-        <link rel="stylesheet" type="text/css" href="templates/estilosIndex.css" />
+        <link rel="stylesheet" type="text/css" href="templates/estilosBajaymodificacion.css" />
     </head>
     <body>
       <nav class="navbar navbar-default margenCabecera" role="navigation">
@@ -59,31 +59,29 @@ and open the template in the editor.
             Baja Usuario
         </div>    
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title text-center">¿Esta seguro darse de baja?</h3>
-                    </div>
-                    <div class="panel-body text-justify alturaPanel">
-                                
-                        <label class="label label-default" for="Usuario">Usuario:</label>##Usuario##
-                                   
-                        <br/><br/>
+        <div class="col-lg-12">
+            
+            <h2 align="center">¿Esta seguro darse de baja?</h2>
+            
+            <hr class="col-lg-11">
+           
+            <div id="contenido">
+                
+                <label class="label label-primary">Usuario:</label>&nbsp;##Usuario##
 
-                        <label class="label label-default" for="Email">Email:</label>##Email##
-                                   
-                        <br/><br/>
-                        
-                        <label class="label label-default" for="Contraseña">Contraseña:</label>##Contraseña##
-                                   
-                        <br/><br/>
-                        
-                        <button type="button" class="btn btn-info left-block" onclick="window.location.href='index.php?accion=perfil&id=5'">SI</button>
-                        <button type="button" class="btn btn-info rigth-block" onclick="window.location.href='index.php?accion=perfil&id=1'">VOLVER</button>
-                    </div>
-                </div>
-           </div>
+                <br/><br/>
+
+                <label class="label label-primary">Email:</label>&nbsp;##Email##
+                
+                <br/><br/>
+                
+                <label class="label label-primary">Contraseña:</label>&nbsp;##Contraseña##
+
+                <br/><br/>
+
+                <button type="button" class="btn btn-info left-block" onclick="window.location.href='index.php?accion=perfil&id=5'">SI</button>
+                <button type="button" class="btn btn-info rigth-block" onclick="window.location.href='index.php?accion=perfil&id=1'">VOLVER</button>
+            </div>
         </div>
         <footer class="footer navbar-bottom" >
                 <div class="container">
