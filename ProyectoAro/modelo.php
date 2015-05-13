@@ -199,5 +199,16 @@
         
         return $resultado;
     }
+    
+    function mbuscar_por_restaurante_id($id)
+    {
+        conectar();
+        
+        mysql_query("SET NAMES 'utf8'");
+        
+        $resultado = mysql_query("SELECT * FROM `restaurante` WHERE `Id` =  '$id'");
+        
+        return $resultado;
+    }
 
 ?>

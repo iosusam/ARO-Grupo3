@@ -38,6 +38,11 @@
                 $id = 1;
         }
     }	
+    
+    if (isset($_GET["restaurante"]))
+    {
+        $restaurante = $_GET["restaurante"];
+    }
 
     //Obtenemos todos los caminos posibles
     
@@ -79,7 +84,12 @@
         if ($accion == "valoracion") {
             switch ($id) {
                 case '1':
+                    // muestra la lista de los restaurantes
                     vbuscar_por_restaurante(mbuscar_por_restaurante());
+                    break;
+                case '2':
+                    //muestra la valoracion del restaurante
+                    vbuscar_por_restaurante_valoracion(mbuscar_por_restaurante_id($restaurante));
                     break;
             }
         }

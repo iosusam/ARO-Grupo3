@@ -15,7 +15,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <link rel="stylesheet" type="text/css" href="templates/buscar_por_restaurante.css" />
         <script>
-            
+                        
             function conexion()
             {
                 if (window.ActiveXObject)
@@ -34,10 +34,22 @@ and open the template in the editor.
             function obtenervaloracionesrestaurante()
             {
                 conexion();
-                con.onreadystatechange = respuestacoordenadasaparcamientos;
-                var dir = "index.php?accion=buscar&id=3&variable=" + Math.random();
+                con.onreadystatechange = respuestavaloracionrestaurante;
+                var dir = "index.php?accion=valoracion&id=2&restaurante="+ document.getElementById("restaurantes").value + "&variable=" + Math.random();
                 con.open("GET", dir, true);
                 con.send(null);
+            }
+            
+            function respuestavaloracionrestaurante()
+            {
+                if (con.readyState == 4)
+                {
+                    if (con.status == 200)
+                    {
+                        var array = con.responseText;
+                        document.getElementById("opinion").innerHTML = array;
+                    }
+                }
             }
         
         
@@ -62,7 +74,7 @@ and open the template in the editor.
              otro elemento que se pueda ocultar al minimizar la barra -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="index.php?accion=menu&id=1">Inicio</a></li>
                     <li class="active"><a href="index.php?accion=valoracion&id=1">Valoraciones</a></li>
                     <li><a href="index.php?accion=contacto&id=1">Contacto</a></li>
                 </ul>
@@ -80,28 +92,28 @@ and open the template in the editor.
                 </div>
             </div>
         </nav>
-        <div>
+        <div class = "container">
             <h2 class="center-block">
                 ¿que restaurante desea consultar?
             </h2>
             <br><br><br>
             <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Elija el resturante
-                    <span class="caret"></span>
-                </button>
                 
                 Elija el restaurante que desee ver su valoracion o escribir un comentario:
                 <br><br><br>
                 
-                <select class="dropdown-menu" onchange="obtenervaloracionrestaurante()">
+                <select id="restaurantes" onchange="obtenervaloracionesrestaurante()">
                     ##linea##
-                    <option>##Restaurante##</option>
+                    <option value="##idRestaurante##">##Restaurante##</option>
                     ##linea##
                 </select>
-               
                 
             </div>
+            <br><br><br>
+            <div id="opinion">
+                
+            </div>        
+            
         </div>
         <footer class="footer navbar-fixed-bottom" >
             <div class="container">
