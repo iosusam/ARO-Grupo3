@@ -89,7 +89,7 @@
                     break;
                 case '2':
                     //muestra la valoracion del restaurante
-                    vbuscar_por_restaurante_valoracion(mbuscar_por_restaurante_id_valoracion($restaurante),mbuscar_por_restaurante_id_restaurante($restaurante),mbuscar_por_restaurante_id_usuario($restaurante));
+                    vbuscar_por_restaurante_valoracion(mbuscar_por_restaurante_id_valoracion($restaurante),mbuscar_por_restaurante_id_restaurante($restaurante));
                     break;
             }
         }

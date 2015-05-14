@@ -335,32 +335,55 @@
         }        
     }
     
-    function vbuscar_por_restaurante_valoracion($valoracion,$restaurante,$usuario)
+    function vbuscar_por_restaurante_valoracion($valoracion,$restaurante)
     {   
-        if($valoracion && $restaurante && $usuario)
+        if($valoracion && $restaurante )
         {        
             $cadena = file_get_contents("templates/comentarios.html");
         
             $trozos = explode("##linea##",$cadena);
             $cuerpo = "";
-            $usuario = mysql_fetch_array($usuario);
             $restaurante = mysql_fetch_array($restaurante);
-            while($resultado = mysql_fetch_array($valoracion)){
+            $resultado = mysql_fetch_array($valoracion);
+            if($resultado)
+            {
                 $aux = $trozos[1];				
                 $aux = str_replace("##NombreRestaurante##", $restaurante["Nombre"], $aux);
-                $aux = str_replace("##NombreUsuario##", $usuario["Nombre"], $aux);
+                $aux = str_replace("##NombreUsuario##", $resultado["NombreUsuario"], $aux);
                 $aux = str_replace("##PuntuacionGeneral##", $resultado["PuntuacionGeneral"], $aux);
                 $aux = str_replace("##Comentario##", $resultado["Comentario"], $aux);
                 $aux = str_replace("##TipoVisita##", $resultado["TipoVisita"], $aux);
-                $aux = str_replace("##Motivo##", $resultado["Morivo"], $aux);
+                $aux = str_replace("##Motivo##", $resultado["Motivo"], $aux);
                 $aux = str_replace("##Fecha##", $resultado["Fecha"], $aux);
                 $aux = str_replace("##Servicio##", $resultado["Servicio"], $aux);
                 $aux = str_replace("##Comida##", $resultado["Comida"], $aux);
                 $aux = str_replace("##RelacionCalidadPrecio##", $resultado["RelacionCalidadPrecio"], $aux);
-                $aux = str_replace("##PlatosRecomendados##", $resultado["PlatosRecomendados"], $aux);
+                $aux = str_replace("##PlatosRecomendables##", $resultado["PlatosRecomendables"], $aux);
             
                 $cuerpo = $cuerpo . $aux;
+                
+                while($resultado = mysql_fetch_array($valoracion)){
+                    $aux = $trozos[1];				
+                    $aux = str_replace("##NombreRestaurante##", $restaurante["Nombre"], $aux);
+                    $aux = str_replace("##NombreUsuario##", $resultado["NombreUsuario"], $aux);
+                    $aux = str_replace("##PuntuacionGeneral##", $resultado["PuntuacionGeneral"], $aux);
+                    $aux = str_replace("##Comentario##", $resultado["Comentario"], $aux);
+                    $aux = str_replace("##TipoVisita##", $resultado["TipoVisita"], $aux);
+                    $aux = str_replace("##Motivo##", $resultado["Motivo"], $aux);
+                    $aux = str_replace("##Fecha##", $resultado["Fecha"], $aux);
+                    $aux = str_replace("##Servicio##", $resultado["Servicio"], $aux);
+                    $aux = str_replace("##Comida##", $resultado["Comida"], $aux);
+                    $aux = str_replace("##RelacionCalidadPrecio##", $resultado["RelacionCalidadPrecio"], $aux);
+                    $aux = str_replace("##PlatosRecomendables##", $resultado["PlatosRecomendables"], $aux);
+            
+                    $cuerpo = $cuerpo . $aux;
+                }
             }
+            else
+            {
+                echo "No hay ningun comentario, se el primero.";
+            }
+            
         }
         echo $trozos[0] . $cuerpo . $trozos[2];
     }

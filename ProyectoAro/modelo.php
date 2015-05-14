@@ -206,7 +206,7 @@
         
         mysql_query("SET NAMES 'utf8'");
         
-        $resultado = mysql_query("SELECT * FROM `valoracion` WHERE `Id` =  '$id'");
+        $resultado = mysql_query("SELECT * FROM `valoracion` WHERE `IdRestaurante` =  '$id'");
         
         return $resultado;
     }
@@ -218,18 +218,7 @@
         mysql_query("SET NAMES 'utf8'");
         
         $resultado = mysql_query("SELECT * FROM `restaurante` WHERE `Id` =  '$id'");
-        
-        return $resultado;
-    }
-    
-    function mbuscar_por_restaurante_id_usuario($id)
-    {
-        conectar();
-        
-        mysql_query("SET NAMES 'utf8'");
-        
-        $resultado = mysql_query("SELECT * FROM `usuario` WHERE `Id` =  '$id'");
-        
+                
         return $resultado;
     }
 
