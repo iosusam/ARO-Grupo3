@@ -18,20 +18,40 @@ and open the template in the editor.
             src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false">
         </script>
         <script>
+            
+            var restaurantes;
+            var gratuitos;
+            var pago;
+            var myLatLng1;
+            var mapOptions1;
+            var map1;
+            var listaRestaurantes;
+            var listaGratuitos;
+            var listaGratuitos1;
+            var listaPago;
+            var listaPago1;
+            var listaRestaurantes1;
+            
             function initialize(){
-                var myLatLng = new google.maps.LatLng(42.815766, -1.646073);
-                var mapOptions = {
+                restaurantes = 0;
+                gratuitos = 0;
+                pago = 0;
+                myLatLng1 = new google.maps.LatLng(42.815766, -1.646073);
+                mapOptions1 = {
                     zoom: 14,
-                    center: myLatLng,
+                    center: myLatLng1,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
-                var map = new google.maps.Map(document.getElementById('map-canvas'),
-                mapOptions);
+                map1 = new google.maps.Map(document.getElementById('map-canvas'),
+                mapOptions1);
+                
+                
+                
             }
             
             var con;
 
-            function conexion()
+            function conexionrestaurantes()
             {
                 if (window.ActiveXObject)
                 {
@@ -46,36 +66,86 @@ and open the template in the editor.
                 }
             }
             
-            function obtenercoordenadasrestaurantes(){
-                conexion();
-                con.onreadystatechange = respuestacoordenadasrestaurantes;
-                var dir = "index.php?accion=buscar&id=2&variable=" + Math.random();
-                con.open("GET", dir, true);
-                con.send(null);
+            var con1;
+
+            function conexionparkingsgratuitos()
+            {
+                if (window.ActiveXObject)
+                {
+                    con1 = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                else
+                {
+                    if (window.XMLHttpRequest)
+                    {
+                        con1 = new XMLHttpRequest();
+                    }
+                }
             }
             
-            function obtenercoordenadaszonaazul(){
-                conexion();
-                con.onreadystatechange = respuestacoordenadaszonaazul;
-                var dir = "index.php?accion=buscar&id=5&variable=" + Math.random();
-                con.open("GET", dir, true);
-                con.send(null);
+            var conpago;
+
+            function conexionparkingspago()
+            {
+                if (window.ActiveXObject)
+                {
+                    conpago = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                else
+                {
+                    if (window.XMLHttpRequest)
+                    {
+                        conpago = new XMLHttpRequest();
+                    }
+                }
             }
             
-            function obtenercoordenadaszonaroja(){
-                conexion();
-                con.onreadystatechange = respuestacoordenadaszonaroja;
-                var dir = "index.php?accion=buscar&id=6&variable=" + Math.random();
-                con.open("GET", dir, true);
-                con.send(null);
-            }
-            
-            function obtenercoordenadaszonaverde(){
-                conexion();
-                con.onreadystatechange = respuestacoordenadaszonaverde;
-                var dir = "index.php?accion=buscar&id=7&variable=" + Math.random();
-                con.open("GET", dir, true);
-                con.send(null);
+            function obtenercoordenadasrestaurantes(valor){
+                
+                if (valor == 1)
+                {
+                    conexionrestaurantes();
+                    con.onreadystatechange = respuestacoordenadasrestaurantes;
+                    var dir = "index.php?accion=buscar&id=2&variable=" + Math.random();
+                    con.open("GET", dir, true);
+                    con.send(null);
+                }
+                else
+                {
+                    restaurantes++;
+                    if (restaurantes % 2 == 1)
+                    {
+                        map = map1;
+                        var img = new google.maps.MarkerImage("imagenes/marcaRestaurantes.png");
+                        var infowindow = new google.maps.InfoWindow({  
+                            content: ''
+                        });
+                        listaRestaurantes1 = [];
+                        for (var i = 0, j = Object.keys(listaRestaurantes).length; i < j; i++) {  
+                            var contenido = listaRestaurantes[i].Contenido;
+                            var marker = new google.maps.Marker({
+                              position: new google.maps.LatLng(listaRestaurantes[i].X, listaRestaurantes[i].Y),
+                              map: map,
+                              icon: img
+                            });
+                            (function(marker, contenido) {
+                              google.maps.event.addListener(marker, 'click', function() {
+                                infowindow.setContent(contenido);
+                                infowindow.open(map, marker);
+                              });
+                            })(marker, contenido);
+                            listaRestaurantes1.push(marker);
+                        }
+                    }
+                    else
+                    {
+                        for (p in listaRestaurantes1) {
+                            listaRestaurantes1[p].setMap(null);
+                        }
+                    }
+                }
+                
+                
             }
             
             function respuestacoordenadasrestaurantes()
@@ -84,27 +154,61 @@ and open the template in the editor.
                 {
                     if (con.status == 200)
                     {
-                        var array = con.responseText;
-                        
-                        var marcadores = JSON.parse(array);
-                        
-                        var myLatLng = new google.maps.LatLng(42.815766, -1.646073);
-                        var mapOptions = {
-                            zoom: 14,
-                            center: myLatLng,
-                            mapTypeId: google.maps.MapTypeId.ROADMAP
-                        };
-                        
-                        var map = new google.maps.Map(document.getElementById('map-canvas'),
-                        mapOptions);
-                        var img = new google.maps.MarkerImage("imagenes/marcaRestaurantes.png");
+                        alert("Restaurantes cargados");
+                        listaRestaurantes = JSON.parse(con.responseText);
+                    }
+                }
+            }
+            
+            function obtenercoordenadaszonaazul(){
+                conexionrestaurantes();
+                con.onreadystatechange = respuestacoordenadaszonaazul;
+                var dir = "index.php?accion=buscar&id=5&variable=" + Math.random();
+                con.open("GET", dir, true);
+                con.send(null);
+            }
+            
+            function obtenercoordenadaszonaroja(){
+                conexionrestaurantes();
+                con.onreadystatechange = respuestacoordenadaszonaroja;
+                var dir = "index.php?accion=buscar&id=6&variable=" + Math.random();
+                con.open("GET", dir, true);
+                con.send(null);
+            }
+            
+            function obtenercoordenadaszonaverde(){
+                conexionrestaurantes();
+                con.onreadystatechange = respuestacoordenadaszonaverde;
+                var dir = "index.php?accion=buscar&id=7&variable=" + Math.random();
+                con.open("GET", dir, true);
+                con.send(null);
+            }
+            
+            function obtenercoordenadasaparcamientosgratuitos(valor)
+            {
+                if (valor == 1)
+                {
+                    conexionparkingsgratuitos();
+                    con1.onreadystatechange = respuestacoordenadasaparcamientosgratuitos;
+                    var dir = "index.php?accion=buscar&id=3&variable=" + Math.random();
+                    con1.open("GET", dir, true);
+                    con1.send(null);
+                }
+                else
+                {
+                    gratuitos++;
+                    if (gratuitos % 2 == 1)
+                    {
+                        map = map1;
+                        var img = new google.maps.MarkerImage("imagenes/ParkingsGratuito.png");
                         var infowindow = new google.maps.InfoWindow({  
                             content: ''
                         });
-                        for (var i = 0, j = Object.keys(marcadores).length; i < j; i++) {  
-                            var contenido = marcadores[i].Contenido;
+                        listaGratuitos1 = [];
+                        for (var i = 0, j = Object.keys(listaGratuitos).length; i < j; i++) {  
+                            var contenido = listaGratuitos[i].Contenido;
                             var marker = new google.maps.Marker({
-                              position: new google.maps.LatLng(marcadores[i].X, marcadores[i].Y),
+                              position: new google.maps.LatLng(listaGratuitos[i].X, listaGratuitos[i].Y),
                               map: map,
                               icon: img
                             });
@@ -114,66 +218,85 @@ and open the template in the editor.
                                 infowindow.open(map, marker);
                               });
                             })(marker, contenido);
+                            listaGratuitos1.push(marker);
+                        }
+                    }
+                    else
+                    {
+                        for (p in listaGratuitos1) {
+                            listaGratuitos1[p].setMap(null);
+                        }
+                    }
+                }
+                
+            }
+            
+            function obtenercoordenadasaparcamientosdepago(valor)
+            {
+                if (valor == 1)
+                {
+                    conexionparkingspago();
+                    conpago.onreadystatechange = respuestacoordenadasaparcamientospago;
+                    var dir = "index.php?accion=buscar&id=4&variable=" + Math.random();
+                    conpago.open("GET", dir, true);
+                    conpago.send(null);  
+                }
+                else
+                {
+                    pago++;
+                    if (pago % 2 == 1)
+                    {                        
+                        map = map1;
+                        var img = new google.maps.MarkerImage("imagenes/ParkingsPago.png");
+                        var infowindow = new google.maps.InfoWindow({  
+                            content: ''
+                        });
+                        listaPago1 = [];
+                        for (var i = 0, j = Object.keys(listaPago).length; i < j; i++) {  
+                            var contenido = listaPago[i].Contenido;
+                            var marker = new google.maps.Marker({
+                              position: new google.maps.LatLng(listaPago[i].X, listaPago[i].Y),
+                              map: map,
+                              icon: img
+                            });
+                            (function(marker, contenido) {
+                              google.maps.event.addListener(marker, 'click', function() {
+                                infowindow.setContent(contenido);
+                                infowindow.open(map, marker);
+                              });
+                            })(marker, contenido);
+                            listaPago1.push(marker);
+                        }
+                    }
+                    else
+                    {
+                        for (p in listaPago1) {
+                            listaPago1[p].setMap(null);
                         }
                     }
                 }
             }
             
-            function obtenercoordenadasaparcamientosgratuitos()
+            function respuestacoordenadasaparcamientospago()
             {
-                conexion();
-                con.onreadystatechange = respuestacoordenadasaparcamientos;
-                var dir = "index.php?accion=buscar&id=3&variable=" + Math.random();
-                con.open("GET", dir, true);
-                con.send(null);
-            }
-            
-            function obtenercoordenadasaparcamientosdepago()
-            {
-                conexion();
-                con.onreadystatechange = respuestacoordenadasaparcamientos;
-                var dir = "index.php?accion=buscar&id=4&variable=" + Math.random();
-                con.open("GET", dir, true);
-                con.send(null);
-            }
-            
-            function respuestacoordenadasaparcamientos()
-            {
-                if (con.readyState == 4)
+                if (conpago.readyState == 4)
                 {
-                    if (con.status == 200)
+                    if (conpago.status == 200)
                     {
-                        var array = con.responseText;
-                        
-                        var marcadores = JSON.parse(array);
-                        
-                        var myLatLng = new google.maps.LatLng(42.815766, -1.646073);
-                        var mapOptions = {
-                            zoom: 14,
-                            center: myLatLng,
-                            mapTypeId: google.maps.MapTypeId.ROADMAP
-                        };
-                        
-                        var map = new google.maps.Map(document.getElementById('map-canvas'),
-                        mapOptions);
-                        var img = new google.maps.MarkerImage("imagenes/marcaParkings.png");
-                        var infowindow = new google.maps.InfoWindow({  
-                            content: ''
-                        });
-                        for (var i = 0, j = Object.keys(marcadores).length; i < j; i++) {  
-                            var contenido = marcadores[i].Contenido;
-                            var marker = new google.maps.Marker({
-                              position: new google.maps.LatLng(marcadores[i].X, marcadores[i].Y),
-                              map: map,
-                              icon: img
-                            });
-                            (function(marker, contenido) {
-                              google.maps.event.addListener(marker, 'click', function() {
-                                infowindow.setContent(contenido);
-                                infowindow.open(map, marker);
-                              });
-                            })(marker, contenido);
-                        }
+                        alert("Parkings de pago cargados");
+                        listaPago = JSON.parse(conpago.responseText);
+                    }
+                }
+            }
+            
+            function respuestacoordenadasaparcamientosgratuitos()
+            {
+                if (con1.readyState == 4)
+                {
+                    if (con1.status == 200)
+                    {
+                        alert("Parkings cargados");
+                        listaGratuitos = JSON.parse(con1.responseText);
                     }
                 }
             }
@@ -185,15 +308,9 @@ and open the template in the editor.
                     if (con.status == 200)
                     {
                         var array = con.responseText;
-                        var puntos = JSON.parse(array);                       
-                        var myLatLng = new google.maps.LatLng(42.815766, -1.646073);
-                        var mapOptions = {
-                            zoom: 14,
-                            center: myLatLng,
-                            mapTypeId: google.maps.MapTypeId.ROADMAP
-                        };
+                        var puntos = JSON.parse(array);
                         
-                        var map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);                                
+                        var map = map1;                                
                         var i = 0;
                         var j = Object.keys(puntos).length;
 
@@ -228,15 +345,9 @@ and open the template in the editor.
                     if (con.status == 200)
                     {
                         var array = con.responseText;
-                        var puntos = JSON.parse(array);                       
-                        var myLatLng = new google.maps.LatLng(42.815766, -1.646073);
-                        var mapOptions = {
-                            zoom: 14,
-                            center: myLatLng,
-                            mapTypeId: google.maps.MapTypeId.ROADMAP
-                        };
+                        var puntos = JSON.parse(array);
                         
-                        var map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);                                
+                        var map = map1;                                
                         var i = 0;
                         var j = Object.keys(puntos).length;
 
@@ -271,15 +382,9 @@ and open the template in the editor.
                     if (con.status == 200)
                     {
                         var array = con.responseText;
-                        var puntos = JSON.parse(array);                       
-                        var myLatLng = new google.maps.LatLng(42.815766, -1.646073);
-                        var mapOptions = {
-                            zoom: 14,
-                            center: myLatLng,
-                            mapTypeId: google.maps.MapTypeId.ROADMAP
-                        };
+                        var puntos = JSON.parse(array);
                         
-                        var map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);                                
+                        var map = map1;                                
                         var i = 0;
                         var j = Object.keys(puntos).length;
 
@@ -307,7 +412,13 @@ and open the template in the editor.
                 }
             }
             
-            google.maps.event.addDomListener(window, 'load', initialize);
+            //google.maps.event.addDomListener(window, 'load', initialize);
+            window.onload=function(){ 
+                obtenercoordenadasaparcamientosgratuitos(1);
+                obtenercoordenadasrestaurantes(1);
+                obtenercoordenadasaparcamientosdepago(1);
+                initialize();
+            }
         </script>
     </head>
     
@@ -351,9 +462,9 @@ and open the template in the editor.
         <div class="container">
             <div id="map-canvas" class="center-block"></div>
         
-            <button class="btn btn-warning" onclick="window.location.href='javascript:obtenercoordenadasrestaurantes()'">Restaurantes</button>
-            <button class="btn btn-info" onclick="window.location.href='javascript:obtenercoordenadasaparcamientosgratuitos()'">Aparcamientos gratuitos</button>
-            <button class="btn btn-info" onclick="window.location.href='javascript:obtenercoordenadasaparcamientosdepago()'">Aparcamientos de pago</button>
+            <button class="btn btn-warning" onclick="window.location.href='javascript:obtenercoordenadasrestaurantes(0)'">Restaurantes</button>
+            <button class="btn btn-info" onclick="window.location.href='javascript:obtenercoordenadasaparcamientosgratuitos(0)'">Aparcamientos gratuitos</button>
+            <button class="btn btn-info" onclick="window.location.href='javascript:obtenercoordenadasaparcamientosdepago(0)'">Aparcamientos de pago</button>
             <button class="btn btn-primary pull-right" onclick="window.location.href='javascript:obtenercoordenadaszonaazul()'">Zona Azul</button>
             <button class="btn btn-danger pull-right" id="botones" onclick="window.location.href='javascript:obtenercoordenadaszonaroja()'">Zona Roja</button>
             <button class="btn btn-success pull-right" id="botones" onclick="window.location.href='javascript:obtenercoordenadaszonaverde()'">Zona Verde</button>
