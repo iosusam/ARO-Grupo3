@@ -4,10 +4,14 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 29-mar-2015, 13:20:56
+    Created on : 14-may-2015, 16:22:52
     Author     : samuel
 */
-#titulo{
-   margin-left: 200px;
-   
+
+b{
+    font-size: 15px;
+    margin-left: 20px;
+}
+.contenido{
+    margin-right:300px; 
 }
