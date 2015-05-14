@@ -316,4 +316,76 @@
         }
     }
     
+    function vbuscar_por_restaurante($prueba)
+    {
+        if ($prueba){
+            $cadena = file_get_contents("templates/buscar_por_restaurante.html");
+        
+            $cadena = str_replace("##nombre##", $_SESSION["usuario"], $cadena);
+            
+            $trozos = explode("##linea##",$cadena);
+            $cuerpo = "";
+            while($resultado = mysql_fetch_array($prueba)){
+                    $aux = $trozos[1];				
+                    $aux = str_replace("##Restaurante##", $resultado["Nombre"], $aux);
+                    $aux = str_replace("##idRestaurante##", $resultado["Id"], $aux);
+                    $cuerpo = $cuerpo . $aux;
+            }
+            echo $trozos[0] . $cuerpo . $trozos[2];
+        }        
+    }
+    
+    function vbuscar_por_restaurante_valoracion($valoracion,$restaurante)
+    {   
+        if($valoracion && $restaurante )
+        {        
+            $cadena = file_get_contents("templates/comentarios.html");
+        
+            $trozos = explode("##linea##",$cadena);
+            $cuerpo = "";
+            $restaurante = mysql_fetch_array($restaurante);
+            $resultado = mysql_fetch_array($valoracion);
+            if($resultado)
+            {
+                $aux = $trozos[1];				
+                $aux = str_replace("##NombreRestaurante##", $restaurante["Nombre"], $aux);
+                $aux = str_replace("##NombreUsuario##", $resultado["NombreUsuario"], $aux);
+                $aux = str_replace("##PuntuacionGeneral##", $resultado["PuntuacionGeneral"], $aux);
+                $aux = str_replace("##Comentario##", $resultado["Comentario"], $aux);
+                $aux = str_replace("##TipoVisita##", $resultado["TipoVisita"], $aux);
+                $aux = str_replace("##Motivo##", $resultado["Motivo"], $aux);
+                $aux = str_replace("##Fecha##", $resultado["Fecha"], $aux);
+                $aux = str_replace("##Servicio##", $resultado["Servicio"], $aux);
+                $aux = str_replace("##Comida##", $resultado["Comida"], $aux);
+                $aux = str_replace("##RelacionCalidadPrecio##", $resultado["RelacionCalidadPrecio"], $aux);
+                $aux = str_replace("##PlatosRecomendables##", $resultado["PlatosRecomendables"], $aux);
+            
+                $cuerpo = $cuerpo . $aux;
+                
+                while($resultado = mysql_fetch_array($valoracion)){
+                    $aux = $trozos[1];				
+                    $aux = str_replace("##NombreRestaurante##", $restaurante["Nombre"], $aux);
+                    $aux = str_replace("##NombreUsuario##", $resultado["NombreUsuario"], $aux);
+                    $aux = str_replace("##PuntuacionGeneral##", $resultado["PuntuacionGeneral"], $aux);
+                    $aux = str_replace("##Comentario##", $resultado["Comentario"], $aux);
+                    $aux = str_replace("##TipoVisita##", $resultado["TipoVisita"], $aux);
+                    $aux = str_replace("##Motivo##", $resultado["Motivo"], $aux);
+                    $aux = str_replace("##Fecha##", $resultado["Fecha"], $aux);
+                    $aux = str_replace("##Servicio##", $resultado["Servicio"], $aux);
+                    $aux = str_replace("##Comida##", $resultado["Comida"], $aux);
+                    $aux = str_replace("##RelacionCalidadPrecio##", $resultado["RelacionCalidadPrecio"], $aux);
+                    $aux = str_replace("##PlatosRecomendables##", $resultado["PlatosRecomendables"], $aux);
+            
+                    $cuerpo = $cuerpo . $aux;
+                }
+            }
+            else
+            {
+                echo "No hay ningun comentario, se el primero.";
+            }
+            
+        }
+        echo $trozos[0] . $cuerpo . $trozos[2];
+    }
+    
 ?>

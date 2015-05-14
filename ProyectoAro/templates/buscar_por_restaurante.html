@@ -14,7 +14,48 @@ and open the template in the editor.
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <link rel="stylesheet" type="text/css" href="templates/buscar_por_restaurante.css" />
+        <script>
+                        
+            function conexion()
+            {
+                if (window.ActiveXObject)
+                {
+                    con = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                else
+                {
+                    if (window.XMLHttpRequest)
+                    {
+                            con = new XMLHttpRequest();
+                    }
+                }
+            }
+            
+            function obtenervaloracionesrestaurante()
+            {
+                conexion();
+                con.onreadystatechange = respuestavaloracionrestaurante;
+                var dir = "index.php?accion=valoracion&id=2&restaurante="+ document.getElementById("restaurantes").value + "&variable=" + Math.random();
+                con.open("GET", dir, true);
+                con.send(null);
+            }
+            
+            function respuestavaloracionrestaurante()
+            {
+                if (con.readyState == 4)
+                {
+                    if (con.status == 200)
+                    {
+                        var array = con.responseText;
+                        document.getElementById("opinion").innerHTML = array;
+                    }
+                }
+            }
+        
+        
+        </script>   
     </head>
+     
     <body>
         <nav class="navbar navbar-default margenCabecera" role="navigation">
         <!-- El logotipo y el icono que despliega el menú se agrupan
@@ -33,42 +74,47 @@ and open the template in the editor.
              otro elemento que se pueda ocultar al minimizar la barra -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="templates/contacto.html">Contacto</a></li>
-                    <li><a href="templates/acercade.html">¿Quienes somos?</a></li>
+                    <li><a href="index.php?accion=menu&id=1">Inicio</a></li>
+                    <li class="active"><a href="index.php?accion=valoracion&id=1">Valoraciones</a></li>
+                    <li><a href="index.php?accion=contacto&id=1">Contacto</a></li>
                 </ul>
             
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.php?accion=login&id=1">Log In</a></li>
-                    <li><a href="index.php?accion=registro&id=1">Regístrate</a></li>
-                </ul>
+                <div class="btn-group pull-right">
+                    <button type="button" id="botondesconectar" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    ##nombre## <span class="caret"></span>
+                    </button>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="index.php?accion=perfil&id=1">Perfil</a></li>
+                        <li class="divider"></li>
+                        <li><a href="index.php?accion=logout&id=1">Desconectar</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
-        <form class="col-lg-offset-1" id="formularioRegistro" method="Post" action="index.php" >
+        <div class = "container">
             <h2 class="center-block">
                 ¿que restaurante desea consultar?
             </h2>
             <br><br><br>
             <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Elija el resturante
-                    <span class="caret"></span>
-                </button>
                 
-                <ul class="dropdown-menu" role="menu">
+                Elija el restaurante que desee ver su valoracion o escribir un comentario:
+                <br><br><br>
+                
+                <select id="restaurantes" onchange="obtenervaloracionesrestaurante()">
                     ##linea##
-                    <li><a href="#">##Restaurante##</a></li>
+                    <option value="##idRestaurante##">##Restaurante##</option>
                     ##linea##
-                    <li class="divider"></li>
-                </ul>
-                <br><br><br><br>
-                Deja tu comentario:
-                <textarea class="form-control" rows="5"></textarea>
+                </select>
+                
             </div>
+            <br><br><br>
+            <div id="opinion">
+                
+            </div>        
             
-            
-
-        </form>
+        </div>
         <footer class="footer navbar-fixed-bottom" >
             <div class="container">
                 <p class="text-muted margen text-center"><span>© Park-Eat 2015</span></p>
