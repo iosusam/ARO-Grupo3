@@ -6,26 +6,48 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
+       <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+         <!--Optional theme--> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+        <link rel="stylesheet" type="text/css" href="templates/estilosComentarios.css" >
     </head>
     <body>
-        ##linea##
-        <div>
-            <h2>##NombreRestaurante##</h2>
-            
-            <h4>##NombreUsuario##</h4>
-            
-            <h5>##PuntuacionGeneral##</h5>
-            <h5>##Comentario##</h5>
-            <h5>##TipoVisita##</h5>
-            <h5>##Motivo##</h5>
-            <h5>##Fecha##</h5>
-            <h5>##Servicio##</h5>
-            <h5>##Comida##</h5>
-            <h5>##RelacionCalidadPrecio##</h5>
-            <h5>##PlatosRecomendables##</h5>
+        
+        ##linea##        
+        <div class="contenido">
+            <div class="panel panel-danger">
+                <div class="panel-heading text-center"><b>Valoración de :</b>##NombreUsuario##</div>
+                    <table class="table">
+                        <tr>
+                            <td><b>Valoración de la Comida :</b> ##Comida##</td>
+                        </tr>
+                        <tr>
+                            <td><b>Comentario :</b> ##Comentario##</td>
+                        </tr>
+                        <tr>
+                            <td><b>Tipo de visita :</b> ##TipoVisita##</td>
+                        </tr>
+                        <tr>
+                            <td><b>Fecha :</b> ##Fecha##</td>
+                        </tr>
+                        <tr>
+                            <td><b>Motivo :</b> ##Motivo##</td>
+                        </tr>
+                        <tr>
+                            <td><b>Calidad-Precio :</b> ##RelacionCalidadPrecio##</td>
+                        </tr>
+                        <tr>
+                            <td><b>Platos a Recomendar :</b> ##PlatosRecomendables##</td>
+                        </tr>
+                        <tr>
+                            <td><b>Valoracion del Servicio :</b> ##Servicio## </td>
+                        </tr>
+                    </table>    
+            </div>
         </div>
         ##linea##
     </body>
