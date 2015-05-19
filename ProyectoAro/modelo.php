@@ -233,13 +233,27 @@
         $Motivo = $_POST["Motivo"];
         $PlatosRecomendables = $_POST["PlatosRecomendables"];
         $Fecha = $_POST["Fecha"];
-        $comentario = $_POST["Comentario"];
-        $comentario = $_POST["Comentario"];
-        $comentario = $_POST["Comentario"];
+        $PuntuacionGeneral = $_POST["PuntuacionGeneral"];
+        $Servicio = $_POST["Servicio"];
+        $Comida = $_POST["Comida"];
+        $RelacionCalidadPrecio = $_POST["RelacionCalidaPrecio"];
+        $Usuario = $_POST["Usuario"];
+        
+        echo $Usuario;
         
         
-        
-        mysql_query("insert into valoracion (NombreUsuario,IdRestaurante,PuntuacionGeneral,Comentario,TipoVisita,Motivo,Fecha,Servicio,Comida,PlatosRecomendables) values ('','$correo','$contrasenaMD5')");
+        //$resultado = mysql_query("insert into valoracion (NombreUsuario,IdRestaurante,PuntuacionGeneral,Comentario,TipoVisita,Motivo,Fecha,Servicio,Comida,PlatosRecomendables) values ('','$correo','$contrasenaMD5')");
+    
+        if($resultado)
+        {
+            // se ha insertado correctamente el ususario
+            return 1;
+        }
+        else
+        {
+            // no se ha podido insertar el comentario correctamente
+            return 2;
+        }
     }
 
 ?>

@@ -378,6 +378,8 @@
             
                     $cuerpo = $cuerpo . $aux;
                 }
+                
+                $cuerpo = $cuerpo . "¿Quieres añadir un comenatario?";
             }
             else
             {
@@ -388,9 +390,38 @@
         
         $cadena = file_get_contents("templates/formulario_comentario.html");
         
-        
+        $cadena = str_replace("##Usuario##", $_SESSION["usuario"], $cadena);
         
         echo $trozos[0] . $cuerpo . $trozos[2] . $cadena;
+    }
+    
+    function vconfirmacion_formulario($resultado)
+    {
+        if ($valor == 1) {
+			
+            $cadena = file_get_contents("templates/validarComentario.html");
+
+            $cadena = str_replace("##titulopagina##", "Registro", $cadena);
+            $cadena = str_replace("##titulo##", "¡Gracias!", $cadena);
+            $cadena = str_replace("##cuerpo##", "Se ha añadido el comentario correctamente.", $cadena);
+            $cadena = str_replace("##boton##", "success", $cadena);
+            $cadena = str_replace("##enlace##", "index.php", $cadena);
+
+            echo $cadena;
+
+        }
+        elseif ($valor == 2) {
+            
+            $cadena = file_get_contents("templates/validarComentario.html");
+
+            $cadena = str_replace("##titulopagina##", "Añadir Comentario", $cadena);
+            $cadena = str_replace("##titulo##", "¡AVISO!", $cadena);
+            $cadena = str_replace("##cuerpo##", "Ha habido un error al añadir el coemntario. Vuelva a intentarlo más tarde.", $cadena);
+            $cadena = str_replace("##boton##", "danger", $cadena);
+            $cadena = str_replace("##enlace##", "index.php", $cadena);
+
+            echo $cadena;
+        }
     }
     
 ?>
