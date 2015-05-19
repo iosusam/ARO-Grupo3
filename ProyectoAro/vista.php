@@ -385,7 +385,12 @@
             }
             
         }
-        echo $trozos[0] . $cuerpo . $trozos[2];
+        
+        $cadena = file_get_contents("templates/formulario_comentario.html");
+        
+        
+        
+        echo $trozos[0] . $cuerpo . $trozos[2] . $cadena;
     }
     
 ?>

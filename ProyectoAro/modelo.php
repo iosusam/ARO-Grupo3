@@ -221,5 +221,25 @@
                 
         return $resultado;
     }
+    
+    function mguardarcomentario()
+    {
+        conectar();
+        
+        mysql_query("SET NAMES 'utf8'");
+        
+        $comentario = $_POST["Comentario"];
+        $TipoVisita = $_POST["TipoVisita"];
+        $Motivo = $_POST["Motivo"];
+        $PlatosRecomendables = $_POST["PlatosRecomendables"];
+        $Fecha = $_POST["Fecha"];
+        $comentario = $_POST["Comentario"];
+        $comentario = $_POST["Comentario"];
+        $comentario = $_POST["Comentario"];
+        
+        
+        
+        mysql_query("insert into valoracion (NombreUsuario,IdRestaurante,PuntuacionGeneral,Comentario,TipoVisita,Motivo,Fecha,Servicio,Comida,PlatosRecomendables) values ('','$correo','$contrasenaMD5')");
+    }
 
 ?>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function validarFormulario(formularioComentario)
+            {
+
+                var Comentario = formularioComentario.Comentario.value;   
+                if(Comentario == "")
+                {
+                    formularioComentario.Comentario.focus();
+                    alert("Debes introducir un comentario.");
+                    return false;
+                }
+
+                var TipoVisita = formularioComentario.TipoVisita.value;
+                if(TipoVisita == "")
+                {
+                    formularioComentario.TipoVisita.focus();
+                    alert("Debes introducir el tipo de visita.");
+                    return false;
+                }
+
+                var Motivo = formularioComentario.Motivo.value;
+                if(Motivo == "")
+                {
+                    formularioComentario.Motivo.focus();
+                    alert("Debes introducir el motivo.");
+                    return false;
+                }
+
+                var PuntuacionGeneral = formularioComentario.PuntuacionGeneral.value;
+                if(PuntuacionGeneral == "")
+                {
+                    formularioComentario.PuntuacionGeneral.focus();
+                    alert("Introduce la puntuacion general de restaurante.");
+                    return false;
+                }
+                
+                var Servicio = formularioComentario.Servicio.value;
+                if(Servicio == "")
+                {
+                    formularioComentario.Servicio.focus();
+                    alert("Introduce el servicio recibido en el restaurante.");
+                    return false;
+                }
+                
+                var Comida = formularioComentario.Comida.value;
+                if(Comida == "")
+                {
+                    formularioComentario.Comida.focus();
+                    alert("Introduce la puntuacion sobre la comida del restaurante.");
+                    return false;
+                }
+                
+                var RelacionCalidaPrecio = formularioComentario.RelacionCalidaPrecio.value;
+                if(RelacionCalidaPrecio == "")
+                {
+                    formularioComentario.RelacionCalidaPrecio.focus();
+                    alert("Introduce la relacion calidad precio del restaurante.");
+                    return false;
+                }
+
+                return true;
+            }
+        </script>
+    </head>
+    <body>
+        <form class="col-lg-offset-1" id="formularioComentario" method="Post" action="index.php?accion=valoracion&id=3" onsubmit="return validarFormulario(this);">
+            <label for="Comentario">Comentario*:</label>
+            <input type="text"  name="Comentario" class="form-control" id="Comentario"/>
+
+            <br /><br />
+            
+            <label for="TipoVisita">Tipo Visita*:</label>
+            <input type="text"  name="TipoVisita" class="form-control" id="TipoVisita"/>
+
+            <br /><br />
+            
+            <label for="Motivo">Motivo*:</label>
+            <input type="text"  name="Motivo" class="form-control" id="Motivo"/>
+
+            <br /><br />
+            
+            <label for="PlatosRecomendables">Platos Recomendables:</label>
+            <input type="text"  name="PlatosRecomendables" class="form-control" id="PlatosRecomendables"/>
+            
+            <br /><br />
+            
+            <label for="Fecha">Fecha de visita</label>
+            <input type="text"  name="Fecha" class="form-control" id="Fecha"/>
+            
+            Puntuacion General*:
+            <input type="radio" name="PuntuacionGeneral" value="1" />1
+            <input type="radio" name="PuntuacionGeneral" value="2" />2
+            <input type="radio" name="PuntuacionGeneral" value="3" />3
+            <input type="radio" name="PuntuacionGeneral" value="4" />4
+            <input type="radio" name="PuntuacionGeneral" value="5" />5
+            <input type="radio" name="PuntuacionGeneral" value="6" />6
+            <input type="radio" name="PuntuacionGeneral" value="7" />7
+            <input type="radio" name="PuntuacionGeneral" value="8" />8
+            <input type="radio" name="PuntuacionGeneral" value="9" />9
+            <input type="radio" name="PuntuacionGeneral" value="10" />10
+            
+             <br /><br />
+            
+            Servicio*:
+            <input type="radio" name="Servicio" value="1" />1
+            <input type="radio" name="Servicio" value="2" />2
+            <input type="radio" name="Servicio" value="3" />3
+            <input type="radio" name="Servicio" value="4" />4
+            <input type="radio" name="Servicio" value="5" />5
+            <input type="radio" name="Servicio" value="6" />6
+            <input type="radio" name="Servicio" value="7" />7
+            <input type="radio" name="Servicio" value="8" />8
+            <input type="radio" name="Servicio" value="9" />9
+            <input type="radio" name="Servicio" value="10" />10
+            
+            <br /><br />
+             
+            Comida*:
+            <input type="radio" name="Comida" value="1" />1
+            <input type="radio" name="Comida" value="2" />2
+            <input type="radio" name="Comida" value="3" />3
+            <input type="radio" name="Comida" value="4" />4
+            <input type="radio" name="Comida" value="5" />5
+            <input type="radio" name="Comida" value="6" />6
+            <input type="radio" name="Comida" value="7" />7
+            <input type="radio" name="Comida" value="8" />8
+            <input type="radio" name="Comida" value="9" />9
+            <input type="radio" name="Comida" value="10" />10
+
+            <br /><br />
+            
+            Relacion Calidad Precio*:
+            <input type="radio" name="RelacionCalidaPrecio" value="1" />1
+            <input type="radio" name="RelacionCalidaPrecio" value="2" />2
+            <input type="radio" name="RelacionCalidaPrecio" value="3" />3
+            <input type="radio" name="RelacionCalidaPrecio" value="4" />4
+            <input type="radio" name="RelacionCalidaPrecio" value="5" />5
+            <input type="radio" name="RelacionCalidaPrecio" value="6" />6
+            <input type="radio" name="RelacionCalidaPrecio" value="7" />7
+            <input type="radio" name="RelacionCalidaPrecio" value="8" />8
+            <input type="radio" name="RelacionCalidaPrecio" value="9" />9
+            <input type="radio" name="RelacionCalidaPrecio" value="10" />10
+            
+            <br><br>
+            ##linea##
+            <label for="Usuario">:</label>
+            <input type="hidden"  name="##Usuario##" class="form-control" id="Usuario"/>
+            ##linea##
+            <input type="submit" class="btn btn-success pull-left" value="Añadir Comentario">
+            <br><br>
+            
+            <div class="row text-danger">
+                Todos los campos marcados con * son obligatorios
+            </div>
+            
+        </form>
+    </body>
+</html>
