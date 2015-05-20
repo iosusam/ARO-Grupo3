@@ -238,6 +238,7 @@
         mysql_query("SET NAMES 'utf8'");
         
         $comentario = $_POST["Comentario"];
+        $IdRestaurante = $_POST["IdRestaurante"];
         $TipoVisita = $_POST["TipoVisita"];
         $Motivo = $_POST["Motivo"];
         $PlatosRecomendables = $_POST["PlatosRecomendables"];
@@ -251,7 +252,7 @@
         echo $Usuario;
         
         
-        //$resultado = mysql_query("insert into valoracion (NombreUsuario,IdRestaurante,PuntuacionGeneral,Comentario,TipoVisita,Motivo,Fecha,Servicio,Comida,PlatosRecomendables) values ('','$correo','$contrasenaMD5')");
+        $resultado = mysql_query("insert into valoracion (NombreUsuario,IdRestaurante,PuntuacionGeneral,Comentario,TipoVisita,Motivo,Fecha,Servicio,Comida,PlatosRecomendables) values ('$Usuario','$IdRestaurante','$PuntuacionGeneral','$comentario','$TipoVisita','$Motivo','$Fecha','$Servicio','$Comida','$PlatosRecomendables')");
     
         if($resultado)
         {

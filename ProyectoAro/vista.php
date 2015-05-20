@@ -401,6 +401,7 @@
         $cadena = file_get_contents("templates/formulario_comentario.html");
         
         $cadena = str_replace("##Usuario##", $_SESSION["usuario"], $cadena);
+        $cadena = str_replace("##IdRestaurante##", $restaurante["Id"], $cadena);
         
         echo $trozos[0] . $cuerpo . $trozos[2] . $cadena;
     }
