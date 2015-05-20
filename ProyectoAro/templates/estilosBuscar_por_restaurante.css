@@ -9,5 +9,7 @@ and open the template in the editor.
 */
 #titulo{
    margin-left: 200px;
-   
+}
+#botondesconectar{
+    margin: 8px;
 }
