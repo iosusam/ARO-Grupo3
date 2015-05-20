@@ -189,6 +189,15 @@
         return mysql_query("select * from zonaverde");
     }
     
+    function mobtenercoordenadaszonanaranja()
+    {
+        conectar();
+        
+        mysql_query("SET NAMES 'utf8'");
+        
+        return mysql_query("select * from zonanaranja");
+    }
+    
     function mbuscar_por_restaurante()
     {
         conectar();

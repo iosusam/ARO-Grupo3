@@ -201,6 +201,9 @@
             case '7':
                 vobtenercoordenadaszona(mobtenercoordenadaszonaverde());
                 break;
+            case '8':
+                vobtenercoordenadaszona(mobtenercoordenadaszonanaranja());
+                break;
         }
     }
     
