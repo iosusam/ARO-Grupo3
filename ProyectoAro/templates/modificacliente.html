@@ -15,29 +15,29 @@ and open the template in the editor.
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         
         <link rel="stylesheet" type="text/css" href="templates/estilosIndex.css" />
+        <script language=javascript>
+                function validarLogin(formularioLogin)
+                {
+                    var nombre = formularioLogin.Usuario.value;
+                    if(nombre == "")
+                    {
+                        formularioLogin.Usuario.focus();
+                        alert("Debes introducir un nombre.");
+                        return false;
+                    }
+
+                    var correo = formularioLogin.Correo.value;   
+                    if(correo == "")
+                    {
+                        formularioLogin.Correo.focus();
+                        alert("Debes introducir un correo.");
+                        return false;
+                    }
+
+                    return true;
+                }
+        </script>
     </head>
-    <script language=javascript>
-            function validarLogin(formularioLogin)
-            {
-                var nombre = formularioLogin.Usuario.value;
-                if(nombre == "")
-                {
-                    formularioLogin.Usuario.focus();
-                    alert("Debes introducir un nombre.");
-                    return false;
-                }
-
-                var correo = formularioLogin.Correo.value;   
-                if(correo == "")
-                {
-                    formularioLogin.Correo.focus();
-                    alert("Debes introducir un correo.");
-                    return false;
-                }
-
-                return true;
-            }
-    </script>
     <body>
       <nav class="navbar navbar-default margenCabecera" role="navigation">
         <!-- El logotipo y el icono que despliega el menú se agrupan
@@ -81,7 +81,7 @@ and open the template in the editor.
             Modificación
         </div> 
         <div id="contenido">
-        <form class="col-lg-offset-1" id="login" method="Post" action="index.php?accion=perfil&id=3" <!--onsubmit="return validarLogin(this);"-->
+            <form class="col-lg-offset-1" id="login" method="Post" action="index.php?accion=perfil&id=3">
             <h2 class="center-block">
                 ¡Modifica tus datos!
             </h2>

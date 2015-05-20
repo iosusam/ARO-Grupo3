@@ -14,6 +14,16 @@
     {
         echo file_get_contents("templates/contacto.html");
     }
+    
+    function vmostrarcontactologeado()
+    {
+        $cadena = file_get_contents("templates/contactologeado.html");
+        
+        $cadena = str_replace("##nombre##", $_SESSION["usuario"], $cadena);
+        
+        echo $cadena;
+    }
+    
     //mostrar pagina acerca de la empresa
     function vmostraacercade()
     {

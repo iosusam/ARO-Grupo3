@@ -56,7 +56,7 @@
             }
         }
         
-        if($accion == "perfil"){
+        elseif($accion == "perfil"){
             switch ($id){
 		case 1 : 
                     //Mostrar los datos del cliente
@@ -81,7 +81,7 @@
             }
 	}
         
-        if ($accion == "valoracion") {
+        elseif ($accion == "valoracion") {
             switch ($id) {
                 case '1':
                     // muestra la lista de los restaurantes
@@ -98,13 +98,27 @@
             }
         }
         
-        if ($accion == "logout") {
+        elseif ($accion == "contacto") {
+        switch ($id) {
+            case '1':
+                //Muestra  el contacto
+                vmostrarcontactologeado();
+                break;
+            }
+        }
+        
+        elseif ($accion == "logout") {
             switch ($id) {
                 case '1':
                     session_destroy();
                     vmostrarlogout(1);
                     break;
             }
+        }
+        
+        else
+        {
+            vmostrarindexlogueado();
         }
     }
 
