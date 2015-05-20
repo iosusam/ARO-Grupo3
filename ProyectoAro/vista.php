@@ -259,20 +259,36 @@
 
             while ($datosrestaurantes = mysql_fetch_array($restaurantes))
             {
-                if ($datosrestaurantes["Web"] != "")
+                if (($datosrestaurantes["Web"] != "") && ($datosrestaurantes["RedSocial"] != ""))
                 {
                     $array[$i] = array(
                         "X" => $datosrestaurantes["Coordenada_X"],
                         "Y" => $datosrestaurantes["Coordenada_Y"],
-                        "Contenido" => "<div id=\"NombreBar\"><b>" . $datosrestaurantes["Nombre"] . "</b></div><div>" . $datosrestaurantes["Calle"] . "</br>" . $datosrestaurantes["CodigoPostal"] . " Pamplona (Navarra)</div><div>Sitio web de <a href='" . $datosrestaurantes["Web"] . "' TARGET='_blank'>" . $datosrestaurantes["Nombre"] . "</a></div>",
+                        "Contenido" => "<div id=\"NombreBar\"><b>" . $datosrestaurantes["Nombre"] . "</b></div><div>" . $datosrestaurantes["Calle"] . "</br>" . $datosrestaurantes["CodigoPostal"] . " Pamplona (Navarra)</div><div>Sitio web de <a href='" . $datosrestaurantes["Web"] . "' TARGET='_blank'>" . $datosrestaurantes["Nombre"] . "</a></div><div>Red social: <a href='" . $datosrestaurantes["RedSocial"] . "' TARGET='_blank'>facebook</a></div>",
                     );
                 }
-                else
+                elseif (($datosrestaurantes["Web"] == "") && ($datosrestaurantes["RedSocial"] != ""))
                 {
                     $array[$i] = array(
                         "X" => $datosrestaurantes["Coordenada_X"],
                         "Y" => $datosrestaurantes["Coordenada_Y"],
-                        "Contenido" => "<div id=\"NombreBar\"><b>" . $datosrestaurantes["Nombre"] . "</b></div><div>" . $datosrestaurantes["Calle"] . "</br>" . $datosrestaurantes["CodigoPostal"] . " Pamplona (Navarra)</div><div>" . $datosrestaurantes["Nombre"] . " no posee sitio web</div>",
+                        "Contenido" => "<div id=\"NombreBar\"><b>" . $datosrestaurantes["Nombre"] . "</b></div><div>" . $datosrestaurantes["Calle"] . "</br>" . $datosrestaurantes["CodigoPostal"] . " Pamplona (Navarra)</div><div>" . $datosrestaurantes["Nombre"] . " no posee sitio web</div><div>Red social: <a href='" . $datosrestaurantes["RedSocial"] . "' TARGET='_blank'>facebook</a></div>",
+                    );
+                }
+                elseif (($datosrestaurantes["Web"] != "") && ($datosrestaurantes["RedSocial"] == ""))
+                {
+                    $array[$i] = array(
+                        "X" => $datosrestaurantes["Coordenada_X"],
+                        "Y" => $datosrestaurantes["Coordenada_Y"],
+                        "Contenido" => "<div id=\"NombreBar\"><b>" . $datosrestaurantes["Nombre"] . "</b></div><div>" . $datosrestaurantes["Calle"] . "</br>" . $datosrestaurantes["CodigoPostal"] . " Pamplona (Navarra)</div><div>Sitio web de <a href='" . $datosrestaurantes["Web"] . "' TARGET='_blank'>" . $datosrestaurantes["Nombre"] . "</a></div><div>No posee Red Social</div>",
+                    );
+                }
+                elseif (($datosrestaurantes["Web"] == "") && ($datosrestaurantes["RedSocial"] == ""))
+                {
+                    $array[$i] = array(
+                        "X" => $datosrestaurantes["Coordenada_X"],
+                        "Y" => $datosrestaurantes["Coordenada_Y"],
+                        "Contenido" => "<div id=\"NombreBar\"><b>" . $datosrestaurantes["Nombre"] . "</b></div><div>" . $datosrestaurantes["Calle"] . "</br>" . $datosrestaurantes["CodigoPostal"] . " Pamplona (Navarra)</div><div>" . $datosrestaurantes["Nombre"] . " no posee sitio web ni Red Social</div>",
                     );
                 }
                 
