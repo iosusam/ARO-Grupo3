@@ -33,8 +33,8 @@ body{
     margin-bottom: 120px;
     
 }
-.nav{
-    font-size: 17px;    
+#botondesconectar{
+    margin: 8px;
 }
 .col-lg-4{
     margin-top: 40px;

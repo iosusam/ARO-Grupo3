@@ -1,0 +1,86 @@
+    <!DOCTYPE html>
+    <!--
+    To change this license header, choose License Headers in Project Properties.
+    To change this template file, choose Tools | Templates
+    and open the template in the editor.
+    -->
+    <html>
+        <head>
+            <title>Contacto</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+             <!--Optional theme--> 
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">            
+            <link rel="stylesheet" type="text/css" href="templates/estilosContacto.css" >        
+        </head>
+        <body>            
+            <nav class="navbar navbar-default margenCabecera" role="navigation">
+            <!-- El logotipo y el icono que despliega el menú se agrupan
+                 para mostrarlos mejor en los dispositivos móviles -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse"
+                      data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Desplegar navegación</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index.php">Park-Eat</a>
+            </div>
+            <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+                 otro elemento que se pueda ocultar al minimizar la barra -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="index.php?accion=valoracion&id=1">Valoraciones</a></li>
+                    <li class="active"><a href="index.php?accion=contacto&id=1">Contacto</a></li>
+                </ul>
+                <div class="btn-group pull-right">
+                    <button type="button" id="botondesconectar" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                      ##nombre## <span class="caret"></span>
+                    </button>
+
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="index.php?accion=perfil&id=1">Perfil</a></li>
+                      <li class="divider"></li>
+                      <li><a href="index.php?accion=logout&id=1">Desconectar</a></li>
+                    </ul>
+                </div>
+            </div>
+          </nav>            
+            <div class="cabecera">                
+                <span><img src="imagenes/LCA.png"/></span>                
+            </div>
+            <div class="ladocabecera">
+                <h1 >Contacto</h1><br/>
+                    <address>      
+                        UPNA Universidad Publica de Navarra<br/>
+                        Pamplona(Navarra)<br/>
+                        <b>Tlfno.</b> 948 430 879 &nbsp;
+                        <b>Móvil :</b> 628 963 057<br/>                        
+                    </address>
+                    <br/><br/><br/>                     
+                    <address>
+                        <b>Email:</b><a href="mailto:contacto@park-eat.com" >contacto@park-eat.com</a>
+                    </address>
+            </div>
+            <div class="telefono">
+             <img src="imagenes/telefono.png" class="center-block img-responsive img-rounded" alt="Imagen responsive">
+                          <br/><br/> 
+            </div>
+            <hr>
+            
+            <footer class="footer navbar-bottom" >
+                    <div class="pie">
+                       
+                        <p class="text-muted margen text-center"><span>© Park-Eat 2015</span></p>
+                    </div>
+            </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </body>
+    </html>
+
