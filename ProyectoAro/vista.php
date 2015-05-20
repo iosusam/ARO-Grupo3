@@ -34,6 +34,16 @@
     {
         echo file_get_contents("templates/buscar.html");
     }
+    
+    function vmostrarbuscarlogeado()
+    {
+        $cadena = file_get_contents("templates/buscarLogeado.html");
+        
+        $cadena = str_replace("##nombre##", $_SESSION["usuario"], $cadena);
+        
+        echo $cadena;
+    }
+    
     //Funcion que valida el registro
     function vvalidarregistro($valor)
     {

@@ -98,6 +98,35 @@
             }
         }
         
+        elseif ($accion == "buscar") {
+            switch ($id) {
+                case '1':
+                    vmostrarbuscarlogeado();
+                    break;
+                case '2':
+                    vobtenercoordenadasrestaurantes(mobtenercoordenadasrestaurantes());
+                    break;
+                case '3':
+                    vobtenercoordenadasaparcamientos(mobtenercoordenadasaparcamientos(1));
+                    break;
+                case '4':
+                    vobtenercoordenadasaparcamientos(mobtenercoordenadasaparcamientos(0));
+                    break;
+                case '5':
+                    vobtenercoordenadaszona(mobtenercoordenadaszonaazul());
+                    break;
+                case '6':
+                    vobtenercoordenadaszona(mobtenercoordenadaszonaroja());
+                    break;
+                case '7':
+                    vobtenercoordenadaszona(mobtenercoordenadaszonaverde());
+                    break;
+                case '8':
+                    vobtenercoordenadaszona(mobtenercoordenadaszonanaranja());
+                    break;
+            }
+        }
+        
         elseif ($accion == "contacto") {
         switch ($id) {
             case '1':
