@@ -11,9 +11,10 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <link rel="stylesheet" type="text/css" href="templates/estilosComentarios.css" />
         <script>
+            
             function validarFormulario(formularioComentario)
             {
-
+                    alert("samuel el puto amo");
                 var Comentario = formularioComentario.Comentario.value;   
                 if(Comentario == "")
                 {
@@ -72,10 +73,11 @@ and open the template in the editor.
 
                 return true;
             }
+    
         </script>
     </head>
-    <body>
-        <form class="col-lg-offset-1" id="formularioComentario" method="Post" action="index.php?accion=valoracion&id=3" onsubmit="return validarFormulario(this);">
+    <body>          
+        <form  method="Post" action="index.php" onsubmit="return validarFormulario(this);">
             <label for="Comentario">Comentario*:</label>
             <input type="text"  name="Comentario" class="form-control" id="Comentario"/>
 
@@ -154,11 +156,14 @@ and open the template in the editor.
             <input type="radio" name="RelacionCalidaPrecio" value="9" />9
             <input type="radio" name="RelacionCalidaPrecio" value="10" />10
             
-            <br><br><br />
-            <label for="Usuario"></label>
-            <input type="hidden"  name="##Usuario##" class="form-control" id="Usuario"/>
-            <label for="IdRestaurante"></label>
-            <input type="hidden"  name="##IdRestaurante##" class="form-control" id="IdRestaurante"/>
+            <br><br><br />   
+            <input type="hidden" name="Usuario" value="##Usuario##">
+            
+            <input type="hidden"  name="IdRestaurante"  value="##IdRestaurante##"/>
+            
+            <input type="hidden" name="id" value="3">
+            <input type="hidden" name="accion" value="valoracion">
+            
             <input type="submit" class="btn btn-success pull-left" value="Añadir Comentario">
             <br><br>
             

@@ -248,9 +248,7 @@
         $Comida = $_POST["Comida"];
         $RelacionCalidadPrecio = $_POST["RelacionCalidaPrecio"];
         $Usuario = $_POST["Usuario"];
-        
-        echo $Usuario;
-        
+                
         
         $resultado = mysql_query("insert into valoracion (NombreUsuario,IdRestaurante,PuntuacionGeneral,Comentario,TipoVisita,Motivo,Fecha,Servicio,Comida,PlatosRecomendables) values ('$Usuario','$IdRestaurante','$PuntuacionGeneral','$comentario','$TipoVisita','$Motivo','$Fecha','$Servicio','$Comida','$PlatosRecomendables')");
     

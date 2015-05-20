@@ -424,7 +424,7 @@
     
     function vconfirmacion_formulario($resultado)
     {
-        if ($valor == 1) {
+        if ($resultado == 1) {
 			
             $cadena = file_get_contents("templates/validarComentario.html");
 
@@ -437,7 +437,7 @@
             echo $cadena;
 
         }
-        elseif ($valor == 2) {
+        elseif ($resultado == 2) {
             
             $cadena = file_get_contents("templates/validarComentario.html");
 
