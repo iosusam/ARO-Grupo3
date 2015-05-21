@@ -44,9 +44,21 @@ and open the template in the editor.
                 };
                 map1 = new google.maps.Map(document.getElementById('map-canvas'),
                 mapOptions1);
-                
-                
-                
+            }
+            
+            function obtener(){
+                navigator.geolocation.getCurrentPosition(mostrar);
+            }
+            
+            function mostrar(posicion){
+                map = map1;
+                var img = new google.maps.MarkerImage("imagenes/marcaRestaurantes.png");
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude),
+                    map: map,
+                    icon: img
+                });
+                marker.setMap(map);
             }
             
             var con;
@@ -459,6 +471,7 @@ and open the template in the editor.
                 obtenercoordenadasaparcamientosgratuitos(1);
                 obtenercoordenadasrestaurantes(1);
                 obtenercoordenadasaparcamientosdepago(1);
+                obtener();
                 initialize();
             }
         </script>
