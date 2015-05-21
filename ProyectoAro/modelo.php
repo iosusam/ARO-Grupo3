@@ -214,9 +214,11 @@
         conectar();
         
         mysql_query("SET NAMES 'utf8'");
-        
-        $resultado = mysql_query("SELECT * FROM `valoracion` WHERE `IdRestaurante` =  '$id'");
-        
+        if($id!=-1){
+            $resultado = mysql_query("SELECT * FROM `valoracion` WHERE `IdRestaurante` =  '$id'");
+        }else{
+            $resultado = null;
+        }
         return $resultado;
     }
     
@@ -225,9 +227,11 @@
         conectar();
         
         mysql_query("SET NAMES 'utf8'");
-        
-        $resultado = mysql_query("SELECT * FROM `restaurante` WHERE `Id` =  '$id'");
-                
+        if($id!=-1){
+            $resultado = mysql_query("SELECT * FROM `restaurante` WHERE `Id` =  '$id'");
+        }else{
+            $resultado = null;
+        }
         return $resultado;
     }
     

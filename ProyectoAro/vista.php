@@ -373,7 +373,7 @@
     
     function vbuscar_por_restaurante_valoracion($valoracion,$restaurante)
     {   
-        if($valoracion && $restaurante )
+        if(($valoracion!=null) && ($restaurante!=null) )
         {        
             $cadena = file_get_contents("templates/comentarios.html");
         
@@ -417,19 +417,21 @@
                 
                 $cuerpo = $cuerpo . "<div><h4>¿Quieres añadir un comenatario?</h4></div>";
             }
-            else
+            else 
             {
                 echo "<div><h4>No hay ningun comentario, se el primero.<h4><br/></div>";
             }
             
+            $cadena = file_get_contents("templates/formulario_comentario.html");
+        
+            $cadena = str_replace("##Usuario##", $_SESSION["usuario"], $cadena);
+            $cadena = str_replace("##IdRestaurante##", $restaurante["Id"], $cadena);
+        
+            echo $trozos[0] . $cuerpo . $trozos[2] . $cadena;
+            
         }
         
-        $cadena = file_get_contents("templates/formulario_comentario.html");
         
-        $cadena = str_replace("##Usuario##", $_SESSION["usuario"], $cadena);
-        $cadena = str_replace("##IdRestaurante##", $restaurante["Id"], $cadena);
-        
-        echo $trozos[0] . $cuerpo . $trozos[2] . $cadena;
     }
     
     function vconfirmacion_formulario($resultado)
@@ -442,7 +444,7 @@
             $cadena = str_replace("##titulo##", "¡Gracias!", $cadena);
             $cadena = str_replace("##cuerpo##", "Se ha añadido el comentario correctamente.", $cadena);
             $cadena = str_replace("##boton##", "success", $cadena);
-            $cadena = str_replace("##enlace##", "index.php", $cadena);
+            $cadena = str_replace("##enlace##", "index.php?accion=valoracion&id=1", $cadena);
 
             echo $cadena;
 
@@ -455,7 +457,7 @@
             $cadena = str_replace("##titulo##", "¡AVISO!", $cadena);
             $cadena = str_replace("##cuerpo##", "Ha habido un error al añadir el coemntario. Vuelva a intentarlo más tarde.", $cadena);
             $cadena = str_replace("##boton##", "danger", $cadena);
-            $cadena = str_replace("##enlace##", "index.php", $cadena);
+            $cadena = str_replace("##enlace##", "index.php?accion=valoracion&id=1", $cadena);
 
             echo $cadena;
         }
