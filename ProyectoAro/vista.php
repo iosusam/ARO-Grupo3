@@ -415,11 +415,11 @@
                     $cuerpo = $cuerpo . $aux;
                 }
                 
-                $cuerpo = $cuerpo . "¿Quieres añadir un comenatario?";
+                $cuerpo = $cuerpo . "<div><h4>¿Quieres añadir un comenatario?</h4></div>";
             }
             else
             {
-                echo "No hay ningun comentario, se el primero.";
+                echo "<div><h4>No hay ningun comentario, se el primero.<h4><br/></div>";
             }
             
         }

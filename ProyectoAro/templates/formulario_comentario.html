@@ -14,7 +14,7 @@ and open the template in the editor.
             
             function validarFormulario(formularioComentario)
             {
-                    alert("samuel el puto amo");
+                    alert("hola");
                 var Comentario = formularioComentario.Comentario.value;   
                 if(Comentario == "")
                 {
@@ -76,10 +76,11 @@ and open the template in the editor.
     
         </script>
     </head>
-    <body>          
-        <form  method="Post" action="index.php" onsubmit="return validarFormulario(this);">
+    <body>
+        <br/>
+        <form  id="formularioComentario" method="Post" action="index.php" class="col-lg-8" onsubmit="return validarFormulario(this);">
             <label for="Comentario">Comentario*:</label>
-            <input type="text"  name="Comentario" class="form-control" id="Comentario"/>
+            <input type="text"  name="Comentario" class="form-control"  id="Comentario"/>
 
             <br /><br />
             
@@ -102,7 +103,7 @@ and open the template in the editor.
             <input type="text"  name="Fecha" class="form-control" id="Fecha"/>
             <br /><br />
             
-            Puntuacion General*:
+            <b>Puntuacion General* :</b>
             <input type="radio" name="PuntuacionGeneral" value="1" />1
             <input type="radio" name="PuntuacionGeneral" value="2" />2
             <input type="radio" name="PuntuacionGeneral" value="3" />3
@@ -116,7 +117,7 @@ and open the template in the editor.
             
              <br /><br /><br />
             
-            Servicio*:
+            <b>Servicio* :</b>
             <input type="radio" name="Servicio" value="1" />1
             <input type="radio" name="Servicio" value="2" />2
             <input type="radio" name="Servicio" value="3" />3
@@ -130,7 +131,7 @@ and open the template in the editor.
             
             <br /><br /><br />
              
-            Comida*:
+            <b>Comida* :</b>
             <input type="radio" name="Comida" value="1" />1
             <input type="radio" name="Comida" value="2" />2
             <input type="radio" name="Comida" value="3" />3
@@ -144,7 +145,7 @@ and open the template in the editor.
 
             <br /><br /><br />
             
-            Relacion Calidad Precio*:
+            <b>Relacion Calidad Precio* :</b>
             <input type="radio" name="RelacionCalidaPrecio" value="1" />1
             <input type="radio" name="RelacionCalidaPrecio" value="2" />2
             <input type="radio" name="RelacionCalidaPrecio" value="3" />3
@@ -156,7 +157,7 @@ and open the template in the editor.
             <input type="radio" name="RelacionCalidaPrecio" value="9" />9
             <input type="radio" name="RelacionCalidaPrecio" value="10" />10
             
-            <br><br><br />   
+            <br/><br/><br/>   
             <input type="hidden" name="Usuario" value="##Usuario##">
             
             <input type="hidden"  name="IdRestaurante"  value="##IdRestaurante##"/>
