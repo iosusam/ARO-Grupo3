@@ -22,20 +22,36 @@ and open the template in the editor.
             var restaurantes;
             var gratuitos;
             var pago;
+            var azul;
+            var rojo;
+            var naranja;
+            var verde;
             var myLatLng1;
             var mapOptions1;
             var map1;
+            var listaZonaAzul;
+            var listaZonaRoja;
+            var listaZonaNaranja;
+            var listaZonaVerde;
             var listaRestaurantes;
             var listaGratuitos;
             var listaGratuitos1;
             var listaPago;
             var listaPago1;
             var listaRestaurantes1;
+            var listaZonaAzul1;
+            var listaZonaVerde1;
+            var listaZonaNaranja1;
+            var listaZonaRoja1;
             
             function initialize(){
                 restaurantes = 0;
                 gratuitos = 0;
                 pago = 0;
+                azul = 0;
+                rojo = 0;
+                verde = 0;
+                naranja = 0;
                 myLatLng1 = new google.maps.LatLng(42.815766, -1.646073);
                 mapOptions1 = {
                     zoom: 14,
@@ -122,6 +138,74 @@ and open the template in the editor.
                 }
             }
             
+            var za;
+
+            function conexionzonaazul()
+            {
+                if (window.ActiveXObject)
+                {
+                    za = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                else
+                {
+                    if (window.XMLHttpRequest)
+                    {
+                        za = new XMLHttpRequest();
+                    }
+                }
+            }
+            
+            var zn;
+
+            function conexionzonanaranja()
+            {
+                if (window.ActiveXObject)
+                {
+                    zn = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                else
+                {
+                    if (window.XMLHttpRequest)
+                    {
+                        zn = new XMLHttpRequest();
+                    }
+                }
+            }
+            
+            var zv;
+
+            function conexionzonaverde()
+            {
+                if (window.ActiveXObject)
+                {
+                    zv = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                else
+                {
+                    if (window.XMLHttpRequest)
+                    {
+                        zv = new XMLHttpRequest();
+                    }
+                }
+            }
+            
+            var zr;
+
+            function conexionzonaroja()
+            {
+                if (window.ActiveXObject)
+                {
+                    zr = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                else
+                {
+                    if (window.XMLHttpRequest)
+                    {
+                        zr = new XMLHttpRequest();
+                    }
+                }
+            }
+            
             function obtenercoordenadasrestaurantes(valor){
                 
                 if (valor == 1)
@@ -181,36 +265,228 @@ and open the template in the editor.
                 }
             }
             
-            function obtenercoordenadaszonaazul(){
-                conexionrestaurantes();
-                con.onreadystatechange = respuestacoordenadaszonaazul;
-                var dir = "index.php?accion=buscar&id=5&variable=" + Math.random();
-                con.open("GET", dir, true);
-                con.send(null);
+            function obtenercoordenadaszonaazul(valor){
+                
+                if (valor == 1)
+                {
+                    conexionzonaazul();
+                    za.onreadystatechange = respuestacoordenadaszonaazul;
+                    var dir = "index.php?accion=buscar&id=5&variable=" + Math.random();
+                    za.open("GET", dir, true);
+                    za.send(null);
+                }
+                else
+                {
+                    azul++;
+                    if (azul % 2 == 1)
+                    {                       
+                        var map = map1;                                
+                        
+                        var j = listaZonaAzul;
+                        listaZonaAzul1 = [];
+                        
+                        for (var i = 0, j = Object.keys(listaZonaAzul).length; i < j; i++) { 
+                            var latlong1 = new google.maps.LatLng(listaZonaAzul[i].X, listaZonaAzul[i].Y);
+                            listaZonaAzul.push(latlong1);
+                        }
+
+                        var i = 0;
+                        while(i<j-1) {
+                            
+                            var poligGMCoords = [];
+                            var nombre = listaZonaAzul[i].Nombre;
+                            
+                            while((nombre === listaZonaAzul[i].Nombre) && (i<j-1)){
+                                var latlong = new google.maps.LatLng(listaZonaAzul[i].X, listaZonaAzul[i].Y);
+                                poligGMCoords.push(latlong);
+                                i++;
+                            }   
+                            var zonaAzul = new google.maps.Polygon({
+                                paths: poligGMCoords,
+                                strokeColor: "#3399FF",
+                                strokeOpacity: 0.8,
+                                strokeWeight: 2,
+                                fillColor: "#33CCCC",
+                                fillOpacity: 0.35
+                            });
+                            zonaAzul.setMap(map);
+                            listaZonaAzul1.push(zonaAzul);
+                        }
+                    }
+                    else{
+                        for (p in listaZonaAzul1) {
+                            listaZonaAzul1[p].setMap(null);
+                        }
+                    }
+                }
             }
             
-            function obtenercoordenadaszonaroja(){
-                conexionrestaurantes();
-                con.onreadystatechange = respuestacoordenadaszonaroja;
-                var dir = "index.php?accion=buscar&id=6&variable=" + Math.random();
-                con.open("GET", dir, true);
-                con.send(null);
+            function obtenercoordenadaszonanaranja(valor){
+                
+                if (valor == 1)
+                {
+                    conexionzonanaranja();
+                    zn.onreadystatechange = respuestacoordenadaszonanaranja;
+                    var dir = "index.php?accion=buscar&id=8&variable=" + Math.random();
+                    zn.open("GET", dir, true);
+                    zn.send(null);
+                }
+                else
+                {
+                    naranja++;
+                    if (naranja % 2 == 1)
+                    {                       
+                        var map = map1;                                
+                        
+                        var j = listaZonaNaranja;
+                        listaZonaNaranja1 = [];
+                        
+                        for (var i = 0, j = Object.keys(listaZonaNaranja).length; i < j; i++) { 
+                            var latlong1 = new google.maps.LatLng(listaZonaNaranja[i].X, listaZonaNaranja[i].Y);
+                            listaZonaNaranja.push(latlong1);
+                        }
+
+                        var i = 0;
+                        while(i<j-1) {
+                            
+                            var poligGMCoords = [];
+                            var nombre = listaZonaNaranja[i].Nombre;
+                            
+                            while((nombre === listaZonaNaranja[i].Nombre) && (i<j-1)){
+                                var latlong = new google.maps.LatLng(listaZonaNaranja[i].X, listaZonaNaranja[i].Y);
+                                poligGMCoords.push(latlong);
+                                i++;
+                            }   
+                            var zonaNaranja = new google.maps.Polygon({
+                                paths: poligGMCoords,
+                                strokeColor: '#FF8000',
+                                strokeOpacity: 0.8,
+                                strokeWeight: 2,
+                                fillColor: '#FE9A2E',
+                                fillOpacity: 0.35
+                            });
+                            zonaNaranja.setMap(map);
+                            listaZonaNaranja1.push(zonaNaranja);
+                        }
+                    }
+                    else{
+                        for (p in listaZonaNaranja1) {
+                            listaZonaNaranja1[p].setMap(null);
+                        }
+                    }
+                }
             }
             
-            function obtenercoordenadaszonaverde(){
-                conexionrestaurantes();
-                con.onreadystatechange = respuestacoordenadaszonaverde;
-                var dir = "index.php?accion=buscar&id=7&variable=" + Math.random();
-                con.open("GET", dir, true);
-                con.send(null);
+            function obtenercoordenadaszonaroja(valor){
+                
+                if (valor == 1)
+                {
+                    conexionzonaroja();
+                    zr.onreadystatechange = respuestacoordenadaszonaroja;
+                    var dir = "index.php?accion=buscar&id=6&variable=" + Math.random();
+                    zr.open("GET", dir, true);
+                    zr.send(null);
+                }
+                else
+                {
+                    rojo++;
+                    if (rojo % 2 == 1)
+                    {                       
+                        var map = map1;                                
+                        
+                        var j = listaZonaRoja;
+                        listaZonaRoja1 = [];
+                        
+                        for (var i = 0, j = Object.keys(listaZonaRoja).length; i < j; i++) { 
+                            var latlong1 = new google.maps.LatLng(listaZonaRoja[i].X, listaZonaRoja[i].Y);
+                            listaZonaRoja.push(latlong1);
+                        }
+
+                        var i = 0;
+                        while(i<j-1) {
+                            
+                            var poligGMCoords = [];
+                            var nombre = listaZonaRoja[i].Nombre;
+                            
+                            while((nombre === listaZonaRoja[i].Nombre) && (i<j-1)){
+                                var latlong = new google.maps.LatLng(listaZonaRoja[i].X, listaZonaRoja[i].Y);
+                                poligGMCoords.push(latlong);
+                                i++;
+                            }   
+                            var zonaRoja = new google.maps.Polygon({
+                                paths: poligGMCoords,
+                                strokeColor: '#FF0000',
+                                strokeOpacity: 0.8,
+                                strokeWeight: 2,
+                                fillColor: '#FF0000',
+                                fillOpacity: 0.35
+                            });
+                            zonaRoja.setMap(map);
+                            listaZonaRoja1.push(zonaRoja);
+                        }
+                    }
+                    else{
+                        for (p in listaZonaRoja1) {
+                            listaZonaRoja1[p].setMap(null);
+                        }
+                    }
+                }
             }
             
-            function obtenercoordenadaszonanaranja(){
-                conexionrestaurantes();
-                con.onreadystatechange = respuestacoordenadaszonanaranja;
-                var dir = "index.php?accion=buscar&id=8&variable=" + Math.random();
-                con.open("GET", dir, true);
-                con.send(null);
+            function obtenercoordenadaszonaverde(valor){
+                
+                if (valor == 1)
+                {
+                    conexionzonaverde();
+                    zv.onreadystatechange = respuestacoordenadaszonaverde;
+                    var dir = "index.php?accion=buscar&id=7&variable=" + Math.random();
+                    zv.open("GET", dir, true);
+                    zv.send(null);
+                }
+                else
+                {
+                    verde++;
+                    if (verde % 2 == 1)
+                    {                       
+                        var map = map1;                                
+                        
+                        var j = listaZonaVerde;
+                        listaZonaVerde1 = [];
+                        
+                        for (var i = 0, j = Object.keys(listaZonaVerde).length; i < j; i++) { 
+                            var latlong1 = new google.maps.LatLng(listaZonaVerde[i].X, listaZonaVerde[i].Y);
+                            listaZonaVerde.push(latlong1);
+                        }
+
+                        var i = 0;
+                        while(i<j-1) {
+                            
+                            var poligGMCoords = [];
+                            var nombre = listaZonaVerde[i].Nombre;
+                            
+                            while((nombre === listaZonaVerde[i].Nombre) && (i<j-1)){
+                                var latlong = new google.maps.LatLng(listaZonaVerde[i].X, listaZonaVerde[i].Y);
+                                poligGMCoords.push(latlong);
+                                i++;
+                            }   
+                            var zonaVerde = new google.maps.Polygon({
+                                paths: poligGMCoords,
+                                strokeColor: '#04B404',
+                                strokeOpacity: 0.8,
+                                strokeWeight: 2,
+                                fillColor: '#00FF00',
+                                fillOpacity: 0.35
+                            });
+                            zonaVerde.setMap(map);
+                            listaZonaVerde1.push(zonaVerde);
+                        }
+                    }
+                    else{
+                        for (p in listaZonaVerde1) {
+                            listaZonaVerde1[p].setMap(null);
+                        }
+                    }
+                }
             }
             
             function obtenercoordenadasaparcamientosgratuitos(valor)
@@ -330,148 +606,44 @@ and open the template in the editor.
             
             function respuestacoordenadaszonaazul()
             {
-                if (con.readyState == 4)
+                if (za.readyState == 4)
                 {
-                    if (con.status == 200)
+                    if (za.status == 200)
                     {
-                        var array = con.responseText;
-                        var puntos = JSON.parse(array);
-                        
-                        var map = map1;                                
-                        var i = 0;
-                        var j = Object.keys(puntos).length;
-
-                        while(i<j-1) {
-                            var poligGMCoords = [];
-                            var nombre = puntos[i].Nombre;
-                            
-                            while((nombre === puntos[i].Nombre) && (i<j-1)){
-                                var latlong = new google.maps.LatLng(puntos[i].X, puntos[i].Y);
-                                poligGMCoords.push(latlong);
-                                i++;
-                            }   
-                            var zonaAzul = new google.maps.Polygon({
-                                paths: poligGMCoords,
-                                strokeColor: "#3399FF",
-                                strokeOpacity: 0.8,
-                                strokeWeight: 2,
-                                fillColor: "#33CCCC",
-                                fillOpacity: 0.35
-                            });
-                            zonaAzul.setMap(map);
-                        }
-                        
-                    }
-                }
-            }
-            
-            function respuestacoordenadaszonaroja()
-            {
-                if (con.readyState == 4)
-                {
-                    if (con.status == 200)
-                    {
-                        var array = con.responseText;
-                        var puntos = JSON.parse(array);
-                        
-                        var map = map1;                                
-                        var i = 0;
-                        var j = Object.keys(puntos).length;
-
-                        while(i<j-1) {
-                            var poligGMCoords = [];
-                            var nombre = puntos[i].Nombre;
-                            
-                            while((nombre === puntos[i].Nombre) && (i<j-1)){
-                                var latlong = new google.maps.LatLng(puntos[i].X, puntos[i].Y);
-                                poligGMCoords.push(latlong);
-                                i++;
-                            }       
-                            var zonaRoja = new google.maps.Polygon({
-                                paths: poligGMCoords,
-                                strokeColor: '#FF0000',
-                                strokeOpacity: 0.8,
-                                strokeWeight: 2,
-                                fillColor: '#FF0000',
-                                fillOpacity: 0.35
-                            });
-                            zonaRoja.setMap(map);                        
-                        }
-                        
-                    }
-                }
-            }
-            
-            function respuestacoordenadaszonaverde()
-            {
-                if (con.readyState == 4)
-                {
-                    if (con.status == 200)
-                    {
-                        var array = con.responseText;
-                        var puntos = JSON.parse(array);
-                        
-                        var map = map1;                                
-                        var i = 0;
-                        var j = Object.keys(puntos).length;
-
-                        while(i<j-1) {
-                            var poligGMCoords = [];
-                            var nombre = puntos[i].Nombre;
-                            
-                            while((nombre === puntos[i].Nombre) && (i<j-1)){
-                                var latlong = new google.maps.LatLng(puntos[i].X, puntos[i].Y);
-                                poligGMCoords.push(latlong);
-                                i++;
-                            }       
-                            var zonaVerde = new google.maps.Polygon({
-                                paths: poligGMCoords,
-                                strokeColor: '#04B404',
-                                strokeOpacity: 0.8,
-                                strokeWeight: 2,
-                                fillColor: '#00FF00',
-                                fillOpacity: 0.35
-                            });
-                            zonaVerde.setMap(map);                        
-                        }
-                        
+                        listaZonaAzul = JSON.parse(za.responseText);
                     }
                 }
             }
             
             function respuestacoordenadaszonanaranja()
             {
-                if (con.readyState == 4)
+                if (zn.readyState == 4)
                 {
-                    if (con.status == 200)
+                    if (zn.status == 200)
                     {
-                        var array = con.responseText;
-                        var puntos = JSON.parse(array);
-                        
-                        var map = map1;                                
-                        var i = 0;
-                        var j = Object.keys(puntos).length;
-
-                        while(i<j-1) {
-                            var poligGMCoords = [];
-                            var nombre = puntos[i].Nombre;
-                            
-                            while((nombre === puntos[i].Nombre) && (i<j-1)){
-                                var latlong = new google.maps.LatLng(puntos[i].X, puntos[i].Y);
-                                poligGMCoords.push(latlong);
-                                i++;
-                            }       
-                            var zonaNaranja = new google.maps.Polygon({
-                                paths: poligGMCoords,
-                                strokeColor: '#FF8000',
-                                strokeOpacity: 0.8,
-                                strokeWeight: 2,
-                                fillColor: '#FE9A2E',
-                                fillOpacity: 0.35
-                            });
-                            zonaNaranja.setMap(map);                        
-                        }
-                        
+                        listaZonaNaranja = JSON.parse(zn.responseText);
+                    }
+                }
+            }
+            
+            function respuestacoordenadaszonaverde()
+            {
+                if (zv.readyState == 4)
+                {
+                    if (zv.status == 200)
+                    {
+                        listaZonaVerde = JSON.parse(zv.responseText);
+                    }
+                }
+            }
+            
+            function respuestacoordenadaszonaroja()
+            {
+                if (zr.readyState == 4)
+                {
+                    if (zr.status == 200)
+                    {
+                        listaZonaRoja = JSON.parse(zr.responseText);
                     }
                 }
             }
@@ -481,6 +653,10 @@ and open the template in the editor.
                 obtenercoordenadasaparcamientosgratuitos(1);
                 obtenercoordenadasrestaurantes(1);
                 obtenercoordenadasaparcamientosdepago(1);
+                obtenercoordenadaszonaazul(1);
+                obtenercoordenadaszonanaranja(1);
+                obtenercoordenadaszonaverde(1);
+                obtenercoordenadaszonaroja(1);
                 obtener();
                 initialize();
             }
@@ -488,6 +664,7 @@ and open the template in the editor.
     </head>
     
     <body>
+        
         <nav class="navbar navbar-default margenCabecera" role="navigation">
             <!-- El logotipo y el icono que despliega el menú se agrupan
                  para mostrarlos mejor en los dispositivos móviles -->
@@ -521,19 +698,25 @@ and open the template in the editor.
             Encuentra tu restaurante
         </h1>
         <br><br>
-        <h4 class="center-text">Encuentra tu restuarante junto con el parking más cercano</h4>
+        <h4 class="center-text">Encuentra tu restaurante junto con el parking más cercano</h4>
         <br>
         
         <div class="container">
+            <div style="border:1px solid #ccc; background:#e5e5e5; padding:10px;">
+                <center>
+                    <input type="text" id="address" placeholder="Nombre del restaurante">
+                    <input type="button" value="Buscar" onClick="up206b.geocode()">
+                </center>
+            </div>
             <div id="map-canvas" class="center-block"></div>
         
             <button class="btn btn-warning" onclick="window.location.href='javascript:obtenercoordenadasrestaurantes(0)'">Restaurantes</button>
             <button class="btn btn-info" onclick="window.location.href='javascript:obtenercoordenadasaparcamientosgratuitos(0)'">Aparcamientos gratuitos</button>
             <button class="btn btn-info" onclick="window.location.href='javascript:obtenercoordenadasaparcamientosdepago(0)'">Aparcamientos de pago</button>
-            <button class="btn btn-primary pull-right" onclick="window.location.href='javascript:obtenercoordenadaszonaazul()'">Zona Azul</button>
-            <button class="btn btn-danger pull-right" id="botones" onclick="window.location.href='javascript:obtenercoordenadaszonaroja()'">Zona Roja</button>
-            <button class="btn btn-success pull-right" id="botones" onclick="window.location.href='javascript:obtenercoordenadaszonaverde()'">Zona Verde</button>
-            <button class="btn btn-warning pull-right" id="botones" onclick="window.location.href='javascript:obtenercoordenadaszonanaranja()'">Zona Naranja</button>
+            <button class="btn btn-primary pull-right" onclick="window.location.href='javascript:obtenercoordenadaszonaazul(0)'">Zona Azul</button>
+            <button class="btn btn-danger pull-right" id="botones" onclick="window.location.href='javascript:obtenercoordenadaszonaroja(0)'">Zona Roja</button>
+            <button class="btn btn-success pull-right" id="botones" onclick="window.location.href='javascript:obtenercoordenadaszonaverde(0)'">Zona Verde</button>
+            <button class="btn btn-warning pull-right" id="botones" onclick="window.location.href='javascript:obtenercoordenadaszonanaranja(0)'">Zona Naranja</button>
         </div>
         
         <footer class="footer navbar-bottom" >
