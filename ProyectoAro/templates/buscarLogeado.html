@@ -43,10 +43,32 @@ and open the template in the editor.
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
                 map1 = new google.maps.Map(document.getElementById('map-canvas'),
-                mapOptions1);
-                
-                
-                
+                mapOptions1);               
+            }
+            
+            function obtener(){
+                navigator.geolocation.getCurrentPosition(mostrar);
+            }
+            
+            function mostrar(posicion){
+                map = map1;
+                var img = new google.maps.MarkerImage("imagenes/chincheta.png");
+                var infowindow = new google.maps.InfoWindow({  
+                    content: ''
+                });
+                var contenido = "<b>Usted está aquí</b>";
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude),
+                    map: map,
+                    icon: img
+                });
+                (function(marker, contenido) {
+                    google.maps.event.addListener(marker, 'click', function() {
+                      infowindow.setContent(contenido);
+                      infowindow.open(map, marker);
+                    });
+                })(marker, contenido);
+                marker.setMap(map);
             }
             
             var con;
@@ -459,6 +481,7 @@ and open the template in the editor.
                 obtenercoordenadasaparcamientosgratuitos(1);
                 obtenercoordenadasrestaurantes(1);
                 obtenercoordenadasaparcamientosdepago(1);
+                obtener();
                 initialize();
             }
         </script>
