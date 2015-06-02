@@ -226,7 +226,7 @@
 	$cadena = str_replace("##nombre##", $_SESSION["usuario"], $cadena);
 	$cadena = str_replace("##Usuario##", $datosusuario[1], $cadena);
 	$cadena = str_replace("##Email##", $datosusuario[2], $cadena);
-        $cadena = str_replace("##Contraseña##", $datosusuario[3], $cadena);
+        //$cadena = str_replace("##Contraseña##", $datosusuario[3], $cadena);
 		
 	echo $cadena;
 
