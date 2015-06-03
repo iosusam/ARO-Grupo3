@@ -209,11 +209,14 @@
         return $resultado;
     }
     
-    function mbuscar_por_restaurante_id_valoracion($id)
+    function mbuscar_por_restaurante_id_valoracion()
     {
         conectar();
         
+        $id = $_GET["restaurante"];
+        
         mysql_query("SET NAMES 'utf8'");
+        
         if($id!=-1){
             $resultado = mysql_query("SELECT * FROM `valoracion` WHERE `IdRestaurante` =  '$id'");
         }else{
@@ -222,9 +225,11 @@
         return $resultado;
     }
     
-    function mbuscar_por_restaurante_id_restaurante($id)
+    function mbuscar_por_restaurante_id_restaurante()
     {
         conectar();
+        
+        $id = $_GET["restaurante"];
         
         mysql_query("SET NAMES 'utf8'");
         if($id!=-1){

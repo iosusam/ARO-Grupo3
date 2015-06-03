@@ -371,7 +371,7 @@
         }        
     }
     
-    function vbuscar_por_restaurante_valoracion($valoracion,$restaurante)
+    function vbuscar_por_restaurante_valoracion($valoracion, $restaurante)
     {   
         if(($valoracion!=null) && ($restaurante!=null) )
         {        
