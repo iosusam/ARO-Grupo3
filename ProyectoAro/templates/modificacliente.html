@@ -56,25 +56,23 @@ and open the template in the editor.
         <!-- Agrupar los enlaces de navegación, los formularios y cualquier
              otro elemento que se pueda ocultar al minimizar la barra -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="index.php?accion=valoracion&id=1">Valoraciones</a></li>
-            <li><a href="index.php?accion=contacto&id=1">Contacto</a></li>
-          </ul>
-            
-          <ul class="nav navbar-nav navbar-right botondesconectar">
-              <div class="btn-group">
-                <button type="button" id="botondesconectar" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                  ##nombre## <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Perfil</a></li>
-                  <li class="divider"></li>
-                  <li><a href="index.php?accion=logout&id=1">Desconectar</a></li>
+                <ul class="nav navbar-nav">
+                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="index.php?accion=valoracion&id=1">Valoraciones</a></li>
+                    <li class="active"><a href="index.php?accion=contacto&id=1">Contacto</a></li>
                 </ul>
-               </div>
-          </ul>
-        </div>
+                <div class="btn-group pull-right">
+                    <button type="button" id="botondesconectar" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                      ##nombre## <span class="caret"></span>
+                    </button>
+
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="index.php?accion=perfil&id=1">Perfil</a></li>
+                      <li class="divider"></li>
+                      <li><a href="index.php?accion=logout&id=1">Desconectar</a></li>
+                    </ul>
+                </div>
+            </div>
       </nav>
         <div class="page-header text-center cabecera margenCabecera"> 
             <!--<img src="imagenes/Log.png" class="img-responsive img-rounded" alt="Logo Park-Eat">-->
@@ -112,11 +110,10 @@ and open the template in the editor.
         <button type="button" class="btn btn-info rigth-block" onclick="window.location.href='index.php?accion=perfil&id=1'">VOLVER</button>
         </div>    
         <footer class="footer navbar-fixed-bottom" >
-                <div class="container">
-                    <p class="text-muted margen text-center"><span>© Park-Eat 2015</span></p>
-                </div>
-            </footer>
-        </div>
+            <div class="container">
+                <p class="text-muted margen text-center"><span>© Park-Eat 2015</span></p>
+            </div>
+        </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
